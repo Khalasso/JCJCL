@@ -63,9 +63,10 @@ nav {
 
 .navtop {
     display: flex;
-    align-items: center;      /* aligns vertically (same Y level) */
+    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 40px;
+    flex-wrap: wrap;
 }
 
 /* Logo */
@@ -76,23 +77,23 @@ nav {
 
 /* Navigation list */
 .navigationbar {
-    list-style-type: none;    /* removes bullet points */
+    display: flex;
+    flex-wrap: nowrap; /* Keeps everything on one line */
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;            /* makes items horizontal */
-    justify-content: center;  /* centers nav items */
-}
-
-/* Navigation items */
-.navigationbar li {
-    margin: 0 15px;
+    width: 100%; /* Ensure it takes up the full width available */
 }
 
 /* Navigation links */
 .navigationbar a {
     text-decoration: none;
-    font-size: 25px;
+    font-size: 22px;
+    padding: 8px 1.2vw; 
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 /* Hover effect */
@@ -1125,4 +1126,18 @@ Contact Us Page
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     /* Ensure this doesn't inherit the small font if you want the menu larger */
+}
+
+
+
+/* Shrink text/spacing if screen is smaller than 1100px (standard laptop) */
+
+@media (max-width: 1100px) {
+    .navigationbar a {
+        font-size: 18px;
+        padding: 5px 8px;
+    }
+    .logo img {
+        height: 80px; /* Shrinks the logo slightly on smaller screens */
+    }
 }
