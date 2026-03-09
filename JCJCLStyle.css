@@ -1,0 +1,1128 @@
+/* 
+Styling for JCL Website for Johns Creek High School
+Made by Rayaan Mithani
+*/
+
+
+/* Prevent padding from increasing width over 100% */
+* {
+    box-sizing: border-box;
+}
+
+/* Reset default browser margin/padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+
+/* Styling for overall website body*/
+body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);;
+}
+
+/* Styling for body */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    padding-top: 160px;
+}
+
+/* Styling for header */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styling for navigation bar */
+
+    /* 
+    - Place navigation bar at top left of page
+    - Make navigation bar fixed so it stays in place when scrolling
+    - Make navigation options gray out when hovered over
+    - Remove bullet points from navigation options
+    - Make navigation options appear horizontally
+    */
+
+/* Navigation bar container */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    background-color: white;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navtop {
+    display: flex;
+    align-items: center;      /* aligns vertically (same Y level) */
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+    height: 110px;
+}
+
+
+/* Navigation list */
+.navigationbar {
+    list-style-type: none;    /* removes bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;            /* makes items horizontal */
+    justify-content: center;  /* centers nav items */
+}
+
+/* Navigation items */
+.navigationbar li {
+    margin: 0 15px;
+}
+
+/* Navigation links */
+.navigationbar a {
+    text-decoration: none;
+    font-size: 25px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.navigationbar a:hover {
+    color: gray;
+}
+
+
+/* Navigation link colors (force black/hover gray always) */
+.navigationbar a,
+.navigationbar a:visited,
+.navigationbar a:active {
+    color: black;
+}
+
+.navigationbar a:hover {
+    color: gray;
+}
+
+.dropdown-menu a,
+.dropdown-menu a:visited,
+.dropdown-menu a:active {
+    color: black;
+}
+.dropdown-menu a:hover {
+    color: gray;
+}
+
+
+/* Same thing for contact us */
+
+.contactus a,
+.contactus a:visited,
+.contactus a:active {
+    color: black;
+}
+.contactus a:hover {
+    color: gray;
+}
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    color: cyan;
+}
+
+/* Hide dropdown menu by default */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: white;
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 220px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: block;
+}
+
+/* Hover effects */
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+/* Contact link */
+.contactus a {
+    text-decoration: none;
+    font-size: 20px;
+    padding-right: 10px;
+    text-decoration-color: rgb(39, 216, 16);
+}
+
+.contactus a:hover {
+    color: gray;
+}
+
+
+/* --- HERO REPAIR (Restored Dimensions) --- */
+.video-header {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video: Restored to your original dimensions */
+.video-header video {
+    display: block;
+    width: 100vw;
+    height: auto;
+    max-width: 100vw;
+}
+
+/* Dark overlay: Integrated with your original ::before logic */
+.video-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This creates a shadow at the top and bottom but leaves the middle clear */
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.5) 0%,   /* Darker at the very top for the Nav Bar */
+        rgba(0, 0, 0, 0) 40%,    /* Completely clear in the middle */
+        rgba(0, 0, 0, 0) 60%,    /* Completely clear in the middle */
+        rgba(0, 0, 0, 0.5) 100%  /* Darker at the bottom for contrast */
+    );
+    z-index: 1;
+}
+
+/* Text overlay: Positioned over the video with refined fonts */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Changed from darkcyan/black for better contrast on dark overlay */
+    text-align: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Text overlay content container */
+.overlay-content h1 {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* Added shadow to match the h2 */
+    text-shadow: 0px 4px 15px rgba(0,0,0,0.6); 
+}
+
+.overlay-content h2 {
+    font-size: 4.5rem;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* This is the shadow we are matching */
+    text-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+}
+
+.header-line {
+    width: 80px;
+    height: 4px;
+    background: skyblue;
+    margin: 25px auto;
+    /* Added box-shadow to the blue line so it stands out too */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+}
+
+/* --- HOME CONTENT LAYOUT --- */
+.home-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.home-intro {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.home-intro h2 {
+    font-size: 36px;
+    border-bottom: 4px solid skyblue;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- VOCATOR HIGHLIGHT --- */
+.vocator-card {
+    display: flex;
+    background: #fdfdfd;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    margin-bottom: 100px;
+    border: 1px solid #eee;
+}
+
+.vocator-text {
+    flex: 1;
+    padding: 60px;
+}
+
+.vocator-preview {
+    flex: 1;
+    background: #f0f0f0;
+}
+
+.vocator-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: skyblue;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: #5dbbe2;
+    transform: translateY(-2px);
+}
+
+/* --- MINI EVENT CARDS --- */
+.events-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* --- MINI EVENT CARDS (Uniform Highlight) --- */
+.upcoming-events {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    border-bottom: 4px solid skyblue;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+.events-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.event-mini-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    /* Apply the "highlight" look to all cards by default */
+    border-top: 6px solid skyblue; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop effect */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: All cards now "pop" when you touch them */
+.event-mini-card:hover {
+    transform: translateY(-10px); /* Lifts the card up */
+    box-shadow: 0 20px 40px rgba(135, 206, 235, 0.3); /* Adds a sky-blue glow */
+    background-color: #fdfdfd;
+}
+
+.event-date {
+    display: block;
+    color: skyblue;
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.event-mini-card h4 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #1a1a1a;
+}
+
+.event-mini-card p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+
+
+
+/* Container for the page title */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 20px 20px; /* Space below the fixed nav */
+    margin-bottom: 20px;
+    font-family: 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback';
+}
+
+.page-header h1 {
+    font-family: 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback';
+    font-size: 42px;
+    font-weight: 800;
+    color: #1a1a1a; /* Professional dark gray */
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Gives it a "Classical" Roman feel */
+    margin: 0;
+}
+
+/* The subtle Sky Blue accent to match your role text */
+.header-underline {
+    width: 80px;
+    height: 4px;
+    background-color: skyblue; /* Matches your card roles */
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Optional: Add a subtle subtitle or "Latin" flavor */
+.page-header::after {
+    content: "Johns Creek Junior Classical League";
+    display: block;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 6px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+
+
+/* 
+
+Officer Board Page
+
+*/
+
+
+
+.officercontainers {
+    display: grid;
+    /* Forces exactly 3 columns regardless of screen width */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 60px; /* Increased spacing between boxes */
+    justify-content: center;
+    /* This ensures all cards in a row match the height of the tallest card */
+    align-items: stretch; 
+    padding: 50px 5%;
+    margin-top: 20px;
+    max-width: 1500px; /* Prevents the 3 boxes from becoming TOO wide on huge monitors */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Updated Officer Card */
+.officer-card {
+    /* Remove the fixed 'width: 415px' so it can grow/shrink to fit the 3-column grid */
+    background-color: white;
+    border-radius: 25px; 
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07); 
+    padding: 40px 25px; 
+    text-align: center;
+    border: 1px solid #f2f2f2;
+    display: flex;           /* Added to help with internal vertical alignment */
+    flex-direction: column;  /* Keeps content stacked vertically */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.officer-card:hover {
+    transform: scale(1.03) translateY(-10px);
+    border-color: rgb(39, 216, 16);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Ensure the text area expands so the boxes stay uniform */
+.officer-details {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Avatar Styling */
+.officer-image img {
+    width: 300px;      
+    height: 300px;     
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 8px solid #fcfcfc;
+    margin: 0 auto 25px auto; /* Centers the image and adds bottom margin */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Text Scaling */
+.officer-details h3 {
+    color: rgb(16, 216, 216);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+}
+
+.officer-details h4 {
+    color: #111;
+    font-size: 28px; 
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.officer-details p {
+    color: #555;
+    font-size: 17px; 
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+/* Mobile Responsiveness: Switch to 1 column for phones */
+@media (max-width: 1100px) {
+    .officercontainers {
+        grid-template-columns: 1fr;
+        max-width: 500px; /* Keeps the card from becoming a wide rectangle on mobile */
+    }
+}
+
+
+
+
+
+/*
+
+Certamen Page
+
+*/
+
+
+/* Container for Certamen Content */
+.certamen-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Image Layout */
+.certamen-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 420px;
+    height: 300px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Info Block Styling */
+.certamen-info-block {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    /* Subtle sky blue left border to match the theme */
+    border-left: 6px solid skyblue; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.certamen-subheading {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: skyblue; /* Matches your Sky Blue theme */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.certamen-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+}
+
+
+
+/*
+
+Local Meetings Page
+
+*/
+
+/* Meetings Timeline Container */
+.meetings-timeline {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Large gap between different meetings */
+}
+
+/* Individual Meeting Entry */
+.meeting-entry {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Alternate direction: flips every second entry */
+.meeting-entry:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Image Container */
+.meeting-image {
+    flex: 1.2;
+    height: 400px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.meeting-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures photos don't stretch */
+    transition: transform 0.5s ease;
+}
+
+.meeting-entry:hover .meeting-image img {
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+/* Text Container */
+.meeting-details {
+    flex: 1;
+}
+
+.date-badge {
+    background-color: skyblue;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.meeting-details h3 {
+    font-size: 32px;
+    margin: 0 0 15px 0;
+    color: #1a1a1a;
+}
+
+.meeting-details p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .meeting-entry, .meeting-entry:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .meeting-image {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+
+
+/*
+
+Events Page
+
+*/
+
+/* Core Showcase Setup */
+.events-showcase {
+    width: 100%;
+    overflow: hidden;
+}
+
+.event-section {
+    min-height: 100vh; /* Each event takes up almost the whole screen */
+    display: flex;
+    padding: 80px 5%;
+    position: relative;
+}
+
+/* --- STYLE 1: FALL FORUM (Split) --- */
+.hero-split {
+    background: #ffffff;
+    align-items: center;
+}
+.hero-image-side {
+    flex: 1.2;
+    position: relative;
+    height: 600px;
+}
+.hero-image-side img:first-child {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.floating-img {
+    position: absolute;
+    bottom: -40px;
+    right: 40px;
+    width: 50%;
+    height: 60%;
+    border: 10px solid white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+.hero-text-side {
+    flex: 0.8;
+    padding-left: 60px;
+}
+.event-label { color: skyblue; letter-spacing: 5px; font-weight: bold; }
+
+
+
+
+
+/* --- STYLE 2: SATURNALIA (New Modern Collage) --- */
+.hero-gallery {
+    background-color: #ffffff; /* Clean white background */
+    padding: 100px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Main image on left, content on right */
+    gap: 40px;
+    max-width: 1200px;
+    align-items: center;
+    z-index: 1;
+}
+
+/* The Large Main Photo */
+.gallery-item.main {
+    width: 100%;
+    height: 650px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.gallery-item.main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The Content Column (Sub Image + Text) */
+.gallery-item.sub {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gallery-item.sub img {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.gallery-info {
+    padding: 10px;
+}
+
+.gallery-info h2 {
+    color: #1a1a1a;
+    font-size: 42px;
+    margin-bottom: 20px;
+    border-bottom: 4px solid skyblue;
+    display: inline-block;
+}
+
+.gallery-info p {
+    color: #444;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* --- STYLE 3: MS VISIT (The Framed Spotlight) --- */
+.hero-magazine.spotlight {
+    background-color: #f8fbff; /* Very subtle blue tint */
+    padding: 120px 5%;
+    overflow: hidden; /* Fixes the "off the frame" issue */
+}
+
+.hero-magazine.spotlight .magazine-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.magazine-text h2 {
+    font-size: 50px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.magazine-location {
+    font-size: 20px;
+    color: skyblue;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* Fix for the image going off-frame */
+.spotlight-image-container {
+    position: relative;
+    padding: 20px; /* Provides breathing room */
+}
+
+.image-accent-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    border-radius: 40px;
+    top: 40px;
+    right: -20px; /* Reduced to keep it on screen */
+    z-index: 0;
+    opacity: 0.15;
+}
+
+.main-spotlight-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes the single photo a perfect impactful square */
+    border-radius: 25px;
+    overflow: hidden;
+    border: 12px solid white; /* Thick white frame to make it "pop" */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.main-spotlight-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1000px) {
+    .gallery-container, .hero-magazine.spotlight .magazine-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .gallery-item.main { height: 400px; }
+    .image-accent-block { display: none; } /* Simplify for mobile */
+}
+
+
+/* --- STYLE 3: MS VISIT (Spotlight) FIXES --- */
+.hero-magazine.spotlight {
+    display: flex;
+    align-items: center;
+    background: #fdfdfd; /* Pure background to make elements pop */
+}
+
+.hero-magazine.spotlight .magazine-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.spotlight-image-container {
+    position: relative;
+    width: 100%;
+    /* Removed fixed height to prevent "off the frame" issues */
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.image-accent-block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    border-radius: 30px;
+    top: 40px; /* Offset for pop effect */
+    right: -30px;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.main-spotlight-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* Use aspect-ratio to keep it perfectly contained */
+    aspect-ratio: 4 / 3; 
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2); /* Stronger shadow to "pop" */
+    border: 5px solid white; /* Border makes it look like a physical photo */
+}
+
+.main-spotlight-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*
+ALL EVENTS
+*/
+
+/* Blue underline under event title */
+.hero-text-side h2,
+.gallery-info h2, 
+.magazine-text h2 {
+    display: inline-block; /* Ensures the underline only goes as far as the text */
+    border-bottom: 4px solid skyblue;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* Event Date/Location Format */
+
+.event-date-alt {
+    display: block;
+    margin-top: 20px;
+    font-weight: 800;
+    color: skyblue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- UNIVERSAL EVENT TYPOGRAPHY --- */
+/* Forces Fall Forum, Saturnalia, and MS Visit to use the same modern font */
+.hero-text-side h2,
+.hero-text-side p,
+.gallery-info h2,
+.gallery-info p,
+.magazine-text h2,
+.magazine-text p,
+.event-label,
+.event-date-alt,
+.magazine-location {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+/* Ensure the paragraph text is easy to read across all designs */
+.hero-text-side p,
+.gallery-info p,
+.magazine-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Ensure all event headers share the same sizing and weight */
+.hero-text-side h2,
+.gallery-info h2, 
+.magazine-text h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+
+/*
+
+Contact Us Page
+
+*/
+.contactInfoHeader {
+    font-size: 40px;
+    text-align: center;
+}
+
+/* Container to center all contact methods */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Styling for both Instagram and Email images */
+.instagramContact img, 
+.emailContact img {
+    width: 120px; /* Adjust size as needed */
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effect to make it interactive */
+.instagramContact img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.contact-item h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #1a1a1a;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Specific styling for the individual buttons */
+.normalNav a {
+    display: inline-block;
+    padding: 8px 15px; /* Adjust these numbers to make the button smaller */
+    font-size: 30px;    /* Slightly smaller font helps with fit */
+    text-decoration: none;
+    color: #1a1a1a;
+    border-radius: 20px; /* Keeps the rounded theme */
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevents text from wrapping to two lines */
+}
+
+.normalNav a:hover {
+    background-color: skyblue;
+    color: white;
+}
+
+/* Target both standalone links and the dropdown button */
+.normalNav a, 
+.dropdown > a {
+    display: inline-block;
+    padding: 9px 18px; /* Matching the slimmer padding */
+    font-size: 30px;    /* Matching the smaller font */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: #1a1a1a;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    background: transparent; /* Ensures no background unless hovered */
+    border: 1px solid transparent; /* Prevents layout shifting on hover */
+}
+
+/* Matching Hover States */
+.normalNav a:hover, 
+.dropdown:hover > a {
+    background-color: skyblue;
+    color: white;
+}
+
+/* Ensure the dropdown menu itself stays styled correctly */
+.dropdown-menu {
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    /* Ensure this doesn't inherit the small font if you want the menu larger */
+}
