@@ -1167,21 +1167,11 @@ Contact Us Page
 }
 
 
-/* Adjust texting/spacing on different screen sizes */
 
-/* At 1024px (iPad/Small Laptop) */
-@media (max-width: 1024px) {
-    .navigationbar a {
-        font-size: 13px;
-        padding: 5px 0.5vw;
-    }
-    .contactus {
-        display: none; /* Hide non-essential items to save the bar's integrity */
-    }
-}
 
 
 /* Adjusting calendar size on different screen sizes */
+
 
 /* By default, hide the mobile version */
 .mobile-calendar {
@@ -1218,7 +1208,7 @@ Contact Us Page
 @media (max-width: 800px) {
     /* Show the hamburger icon */
     .hamburger {
-        display: block;
+        display: block !important;
         font-size: 30px;
         cursor: pointer;
         padding: 10px;
@@ -1227,7 +1217,7 @@ Contact Us Page
 
     /* Hide the actual navigation bar until toggled */
     .navigationbar {
-        display: none; 
+        display: none !important; 
         flex-direction: column; /* Stack tabs vertically */
         position: absolute;
         top: 100%; /* Sits right under the nav bar */
@@ -1240,7 +1230,7 @@ Contact Us Page
 
     /* Show the menu when the checkbox is checked */
     #menu-toggle:checked ~ .navigationbar {
-        display: flex;
+        display: flex !important;
     }
 
     /* Adjust the individual tabs for a vertical list */
