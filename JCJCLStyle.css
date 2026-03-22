@@ -54,24 +54,25 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     z-index: 1000;
     background-color: white;
-    box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .navtop {
     display: flex;
+    flex-wrap: nowrap; /* Forces them to stay side-by-side */
     align-items: center;
     justify-content: space-between;
-    padding: 10px 40px;
-    flex-wrap: wrap;
+    padding: 5px 2%; /* Use percentage for outer spacing */
+    width: 100%;
 }
 
-/* Logo */
 .logo img {
-    height: 110px;
+    /* Use a relative height so the logo shrinks on smaller resolutions */
+    height: clamp(50px, 5vw, 80px); 
+    width: auto;
 }
 
 
@@ -87,13 +88,16 @@ nav {
     width: 100%; /* Ensure it takes up the full width available */
 }
 
-/* Navigation links */
-.navigationbar a {
+.navigationbar a, 
+.dropdown > a {
     text-decoration: none;
-    font-size: 22px;
-    padding: 8px 1.2vw; 
+    font-size: clamp(14px, 1.1vw, 18px);
+    padding: 10px 0;
+    width: 100%;
     transition: color 0.3s ease;
     white-space: nowrap;
+    color: black;
+    display: inline-block;
 }
 
 /* Hover effect */
@@ -1081,17 +1085,25 @@ Contact Us Page
     margin: 0;
 }
 
+
+
 /* Specific styling for the individual buttons */
+
+
+/*
+
 .normalNav a {
     display: inline-block;
-    padding: 8px 15px; /* Adjust these numbers to make the button smaller */
-    font-size: 30px;    /* Slightly smaller font helps with fit */
+    padding: 8px 15px;
+    font-size: 30px;
     text-decoration: none;
     color: #1a1a1a;
-    border-radius: 20px; /* Keeps the rounded theme */
+    border-radius: 20px;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Prevents text from wrapping to two lines */
+    white-space: nowrap;
 }
+
+*/
 
 .normalNav a:hover {
     background-color: skyblue;
@@ -1099,20 +1111,26 @@ Contact Us Page
 }
 
 /* Target both standalone links and the dropdown button */
+
+/*
+
 .normalNav a, 
 .dropdown > a {
     display: inline-block;
-    padding: 9px 18px; /* Matching the slimmer padding */
-    font-size: 30px;    /* Matching the smaller font */
+    padding: 9px 18px;
+    font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
     color: #1a1a1a;
     border-radius: 20px;
     transition: all 0.3s ease;
     white-space: nowrap;
-    background: transparent; /* Ensures no background unless hovered */
-    border: 1px solid transparent; /* Prevents layout shifting on hover */
+    background: transparent;
+    border: 1px solid transparent;
 }
+
+*/
+
 
 /* Matching Hover States */
 .normalNav a:hover, 
@@ -1139,5 +1157,33 @@ Contact Us Page
     }
     .logo img {
         height: 80px; /* Shrinks the logo slightly on smaller screens */
+    }
+}
+
+/* Ensure the list items grow to fill space evenly */
+.navigationbar li {
+    flex: 1; /* Forces every tab to be the exact same width */
+    text-align: center;
+}
+
+
+/* Adjust texting/spacing on different screen sizes */
+
+/* At 1024px (iPad/Small Laptop) */
+@media (max-width: 1024px) {
+    .navigationbar a {
+        font-size: 13px;
+        padding: 5px 0.5vw;
+    }
+    .contactus {
+        display: none; /* Hide non-essential items to save the bar's integrity */
+    }
+}
+
+/* At 768px (Mobile) */
+@media (max-width: 768px) {
+    .navigationbar {
+        flex-wrap: wrap; /* Allows items to wrap ONLY on phones */
+        justify-content: center;
     }
 }
