@@ -1187,3 +1187,29 @@ Contact Us Page
         justify-content: center;
     }
 }
+
+
+/* Adjusting calendar size on different screen sizes */
+
+/* By default, hide the mobile version */
+.mobile-calendar {
+    display: none;
+}
+
+/* Make the containers fill the width of the screen */
+.calendar-container {
+    width: 100%;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The Switch: When the screen is smaller than 768px (Tablets/Phones) */
+@media (max-width: 768px) {
+    .desktop-calendar {
+        display: none; /* Hide the big bulky calendar */
+    }
+    .mobile-calendar {
+        display: block; /* Show the vertical agenda list */
+    }
+}
