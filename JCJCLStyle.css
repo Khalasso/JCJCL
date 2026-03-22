@@ -1180,14 +1180,6 @@ Contact Us Page
     }
 }
 
-/* At 768px (Mobile) */
-@media (max-width: 768px) {
-    .navigationbar {
-        flex-wrap: wrap; /* Allows items to wrap ONLY on phones */
-        justify-content: center;
-    }
-}
-
 
 /* Adjusting calendar size on different screen sizes */
 
