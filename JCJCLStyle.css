@@ -1213,3 +1213,62 @@ Contact Us Page
         display: block; /* Show the vertical agenda list */
     }
 }
+
+
+/* --- HAMBURGER LOGIC --- */
+
+/* Hide the checkbox and hamburger icon by default (Desktop) */
+#menu-toggle, .hamburger {
+    display: none;
+}
+
+/* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
+@media (max-width: 800px) {
+    /* Show the hamburger icon */
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        color: black;
+    }
+
+    /* Hide the actual navigation bar until toggled */
+    .navigationbar {
+        display: none; 
+        flex-direction: column; /* Stack tabs vertically */
+        position: absolute;
+        top: 100%; /* Sits right under the nav bar */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+
+    /* Show the menu when the checkbox is checked */
+    #menu-toggle:checked ~ .navigationbar {
+        display: flex;
+    }
+
+    /* Adjust the individual tabs for a vertical list */
+    .navigationbar li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 25px;
+    }
+
+    .navigationbar a {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    /* Fix dropdowns for mobile so they don't float sideways */
+    .dropdown-menu {
+        position: static;
+        display: block; /* Show dropdown items clearly in the list */
+        box-shadow: none;
+        padding-left: 20px;
+        background-color: #f9f9f9;
+    }
+}
