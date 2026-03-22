@@ -1208,6 +1208,7 @@ Contact Us Page
 
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
+    /* Show the hamburger icon and hide the checkbox */
     .hamburger {
         display: block !important;
         font-size: 30px;
@@ -1215,61 +1216,71 @@ Contact Us Page
         padding: 10px;
         color: black;
     }
+    #menu-toggle { display: none; }
 
     /* The Main Menu Container */
     .navigationbar {
-        display: none; 
-        flex-direction: column;
+        display: none !important; /* Hidden until checkbox is checked */
+        flex-direction: column !important;
         position: absolute;
         top: 100%; 
         left: 0;
         width: 100%;
-        background-color: white;
+        background-color: white !important;
         z-index: 9999;
-        max-height: 80vh; 
-        overflow-y: auto; 
+        
+        /* FIX: Enable scrolling */
+        max-height: 75vh; 
+        overflow-y: auto !important; 
         -webkit-overflow-scrolling: touch;
+        
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
+    /* Show the menu when checked */
     #menu-toggle:checked ~ .navigationbar {
         display: flex !important;
     }
 
-    /* Hide the 'Parent' links that have arrows in their names */
-    /* This stops the 'double arrow' and the broken redirect issue */
+    /* HIDE the 'Parent' links to fix the double-arrow and redirect issues */
     .navigationbar > li.dropdown > a {
-        display: none; 
+        display: none !important; 
     }
 
-    /* Make the Dropdown Menu items appear as normal main items */
+    /* Flatten the menu: Show all dropdown items as main items */
     .navigationbar .dropdown-menu {
-        display: block !important; /* Always show them inside the sandwich */
-        position: static;
-        width: 100%;
-        background-color: white;
-        padding: 0;
-        box-shadow: none;
+        display: block !important; 
+        position: static !important;
+        width: 100% !important;
+        background-color: white !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    /* Style every list item (Regular ones + Dropdown children) to look identical */
+    /* Make all list items look the same */
     .navigationbar li, 
     .dropdown-menu li {
-        width: 100%;
-        border-bottom: 1px solid #eee;
+        width: 100% !important;
+        border-bottom: 1px solid #eee !important;
+        list-style: none !important;
     }
 
+    /* Styling the links for easy tapping */
     .navigationbar a, 
     .dropdown-menu li a {
-        font-size: 18px;
-        width: 100%;
-        display: block;
-        padding: 15px 25px;
-        color: black;
-        text-decoration: none;
+        font-size: 18px !important;
+        width: 100% !important;
+        display: block !important;
+        padding: 15px 25px !important;
+        color: black !important;
+        text-align: left !important;
     }
 
-    /* Fix body padding for mobile header height */
+    /* Fix body padding for mobile header */
     body {
         padding-top: 80px !important;
     }
