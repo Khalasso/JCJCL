@@ -19,62 +19,54 @@ Made by Rayaan Mithani
 
     <!-- Nav for logo + navigation menu -->
     <nav>
-
-        <!-- Organize top of nav bar (logo on left/contact us on right) -->
-        <div class="navtop">
-
-            <!-- Logo on top -->
+        <div class="navtop">    
             <div class="logo">
                 <a href="index.html">
-                    <img src="Johns Creek JCL Logo.png" alt="Johns Creek Junior Classical League Logo">
+                    <img src="Johns Creek JCL Logo.png" alt="Logo">
                 </a>
             </div>
 
+            <!-- Hamburger menu for mobile -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">&#9776;</label>
 
-            <!-- Navigation bar -->
             <ul class="navigationbar">
+                <li class="normalNav"><a href="JCLMeetings.html">Meetings</a></li>
+                
+                <li class="dropdown">
+                    <a href="JCLOfficerBoard2526.html">Officers ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="JCLOfficerBoard2526.html">Current Board (25-26)</a></li>
+                        <li><a href="JCLOfficerBoard2425.html">2024-2025 Archive</a></li>
+                    </ul>
+                </li>
 
-                <ul class="navigationbar">
-                    <li class="normalNav"><a href="JCLMeetings.html">Meetings</a></li>
+                <li class="normalNav"><a href="JCLEvents.html">Events</a></li>
+                <li class="normalNav"><a href="JCLCertamen.html">Certamen</a></li>
 
-                    <li class="dropdown">
-                        <a href="JCLOfficerBoard2526.html">Officers ▾</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="JCLOfficerBoard2526.html">Current Board (25-26)</a></li>
-                            <li><a href="JCLOfficerBoard2425.html">2024-2025 Archive</a></li>
-                        </ul>
-                    </li>
+                <li class="dropdown">
+                    <a href="#">Competition ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="JCLContestSubmissions.html">Contest Submissions</a></li>
+                        <li><a href="JCLExams.html">Exams</a></li>
+                    </ul>
+                </li>
 
-                    <li class="normalNav"><a href="JCLEvents.html">Events</a></li>
-                    <li class="normalNav"><a href="JCLCertamen.html">Certamen</a></li>
+                <li class="dropdown">
+                    <a href="#">Chapter News ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="JCLMinutes.html">Minutes</a></li>
+                        <li><a href="JCLVocator.html">Vocator</a></li>
+                        <li><a href="JCLNewsletters.html">Newsletters</a></li>
+                    </ul>
+                </li>
 
-                    <li class="dropdown">
-                        <a href="#">Competition ▾</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="JCLContestSubmissions.html">Contest Submissions</a></li>
-                            <li><a href="JCLExams.html">Exams</a></li>
-                            <li><a href="JCLResources.html">Resources</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#">Chapter News ▾</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="JCLMinutes.html">Minutes</a></li>
-                            <li><a href="JCLVocator.html">Vocator</a></li>
-                            <li><a href="JCLNewsletters.html">Newsletters</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <!-- Contact Us -->
-            <div class="contactus">
-                <a href="JCLContactInfo.html">Contact Us</a>
-            </div>
+                <li class="normalNav contact-tab">
+                    <a href="JCLContactInfo.html">Contact Us</a>
+                </li>
+            </ul>
         </div>
-
     </nav>
-
 
 
 
