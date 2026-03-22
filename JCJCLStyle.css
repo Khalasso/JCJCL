@@ -55,7 +55,7 @@ nav {
     left: 0;
     width: 100%;
     padding: 5px 0;
-    z-index: 1000;
+    z-index: 10000;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -67,6 +67,8 @@ nav {
     justify-content: space-between;
     padding: 5px 2%; /* Use percentage for outer spacing */
     width: 100%;
+    background-color: white; /* Ensures the bar isn't see-through on mobile */
+    position: relative;
 }
 
 .logo img {
@@ -1217,15 +1219,18 @@ Contact Us Page
 
     /* Hide the actual navigation bar until toggled */
     .navigationbar {
-        display: none !important; 
-        flex-direction: column; /* Stack tabs vertically */
+        display: none; 
+        flex-direction: column;
         position: absolute;
-        top: 100%; /* Sits right under the nav bar */
+        top: 100%; 
         left: 0;
         width: 100%;
         background-color: white;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        padding: 20px 0;
+        z-index: 9999;
+        /* FIX: Enable scrolling */
+        max-height: 80vh; /* Limits menu to 80% of screen height */
+        overflow-y: auto; /* Adds scrollbar if content is too long */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
     }
 
     /* Show the menu when the checkbox is checked */
@@ -1245,12 +1250,29 @@ Contact Us Page
         width: 100%;
     }
 
-    /* Fix dropdowns for mobile so they don't float sideways */
-    .dropdown-menu {
+    /* 1. Hide the dropdown by default on mobile */
+    .navigationbar .dropdown-menu {
+        display: none; 
         position: static;
-        display: block; /* Show dropdown items clearly in the list */
-        box-shadow: none;
-        padding-left: 20px;
+        width: 100%;
         background-color: #f9f9f9;
+    }
+
+    /* 2. Show it when the parent tab is clicked/tapped */
+    .navigationbar .dropdown:hover .dropdown-menu,
+    .navigationbar .dropdown:focus-within .dropdown-menu {
+        display: block !important;
+    }
+
+    /* 3. Style the sub-items so they are easy to tap */
+    .navigationbar .dropdown > a::after {
+        content: ' ▼';
+        font-size: 12px;
+        float: right;
+    }
+
+    body {
+        padding-top: 80px !important; /* Matches the smaller height of the mobile nav bar */
+        font-size: 16px; /* Standardizes body text for mobile readability */
     }
 }
