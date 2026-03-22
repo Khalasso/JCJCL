@@ -1227,10 +1227,14 @@ Contact Us Page
         width: 100%;
         background-color: white;
         z-index: 9999;
-        /* FIX: Enable scrolling */
-        max-height: 80vh; /* Limits menu to 80% of screen height */
-        overflow-y: auto; /* Adds scrollbar if content is too long */
+        
+        /* FIX 1: Enable scrolling within the menu */
+        max-height: 75vh;    /* Limits menu height so it doesn't go off screen */
+        overflow-y: auto;    /* Adds the scrollbar */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+        
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        padding: 10px 0;
     }
 
     /* Show the menu when the checkbox is checked */
@@ -1242,37 +1246,48 @@ Contact Us Page
     .navigationbar li {
         width: 100%;
         text-align: left;
-        padding: 10px 25px;
+        padding: 0; /* Remove padding from li to let <a> fill the space */
+        border-bottom: 1px solid #eee;
     }
 
     .navigationbar a {
         font-size: 20px;
         width: 100%;
+        display: block;
+        padding: 15px 25px; /* Bigger tap target for thumbs */
     }
 
-    /* 1. Hide the dropdown by default on mobile */
+    /* FIX 2: Dropdown Logic - Hidden by default */
     .navigationbar .dropdown-menu {
-        display: none; 
-        position: static;
+        display: none !important; /* Forces it closed */
+        position: static;        /* Pushes other menu items down when open */
         width: 100%;
-        background-color: #f9f9f9;
+        background-color: #f4f4f4; /* Light gray background for sub-menu */
+        padding-left: 20px;
+        box-shadow: none;
     }
 
-    /* 2. Show it when the parent tab is clicked/tapped */
-    .navigationbar .dropdown:hover .dropdown-menu,
+    /* FIX 3: Open dropdown ONLY when parent is tapped/active */
+    .navigationbar .dropdown:active .dropdown-menu,
     .navigationbar .dropdown:focus-within .dropdown-menu {
         display: block !important;
     }
 
-    /* 3. Style the sub-items so they are easy to tap */
+    /* Dropdown arrow indicator */
     .navigationbar .dropdown > a::after {
         content: ' ▼';
         font-size: 12px;
         float: right;
     }
 
+    /* Adjust the sub-links specifically */
+    .dropdown-menu li a {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
     body {
-        padding-top: 80px !important; /* Matches the smaller height of the mobile nav bar */
-        font-size: 16px; /* Standardizes body text for mobile readability */
+        padding-top: 80px !important; 
+        font-size: 16px; 
     }
 }
