@@ -1209,76 +1209,40 @@ Contact Us Page
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
     .hamburger {
-        display: block !important;
-        font-size: 30px;
-        cursor: pointer;
-        padding: 10px;
-        color: black;
-    }
-    #menu-toggle { display: none; }
-
-    .navigationbar {
-        display: none !important; 
-        flex-direction: column !important;
-        position: absolute;
-        top: 100%; 
-        left: 0;
-        width: 100%;
-        background-color: white !important;
-        z-index: 9999;
-        max-height: 75vh; 
-        overflow-y: auto !important; 
-        -webkit-overflow-scrolling: touch;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        /* FIX: Ensure the main list has no indent */
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    #menu-toggle:checked ~ .navigationbar {
         display: flex !important;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        padding: 0;
+        margin: 10px;
+        z-index: 10001;
     }
 
-    /* HIDE the parent dropdown links (with the arrows) */
-    .navigationbar > li.dropdown > a {
-        display: none !important; 
+    /* The three individual bars */
+    .hamburger span {
+        width: 100%;
+        height: 3px;
+        background-color: black;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out; /* This creates the smooth animation */
     }
 
-    /* FLATTENED DROPDOWN RESET */
-    .navigationbar .dropdown-menu {
-        display: block !important; 
-        position: static !important;
-        width: 100% !important;
-        background-color: white !important;
-        /* FIX: Remove the 'Tab' indent from the sub-list */
-        padding: 0 !important; 
-        margin: 0 !important;
-        box-shadow: none !important;
+    /* ANIMATION LOGIC: When checkbox is checked */
+    
+    /* Top bar rotates 45 degrees */
+    #menu-toggle:checked ~ .navtop .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
     }
 
-    /* Ensure all list items (Main and Sub-items) align to the absolute left */
-    .navigationbar li, 
-    .dropdown-menu li {
-        width: 100% !important;
-        border-bottom: 1px solid #eee !important;
-        list-style: none !important;
-        padding: 0 !important; /* Removes any padding that looks like an indent */
-        margin: 0 !important;
+    /* Middle bar disappears */
+    #menu-toggle:checked ~ .navtop .hamburger span:nth-child(2) {
+        opacity: 0;
     }
 
-    /* Style the links to be identical and left-aligned */
-    .navigationbar a, 
-    .dropdown-menu li a {
-        font-size: 18px !important;
-        width: 100% !important;
-        display: block !important;
-        padding: 15px 25px !important; /* Controls the distance from the left edge */
-        color: black !important;
-        text-align: left !important;
-        text-decoration: none !important;
-    }
-
-    body {
-        padding-top: 80px !important;
+    /* Bottom bar rotates -45 degrees */
+    #menu-toggle:checked ~ .navtop .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
