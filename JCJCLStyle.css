@@ -1681,19 +1681,29 @@ Contact Us Page
     }
 
     /* --- HAMBURGER ANIMATION (Direct Sibling Selectors) --- */
-    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    /* This finds the spans inside the label that follows the checked box */
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
 
-    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
         opacity: 0;
     }
 
-    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
 
-    #menu-toggle { display: none !important; }
+    /* --- THE CRITICAL FIX: MENU SLIDE-IN --- */
+    /* This covers two scenarios: if the menu is a direct sibling OR if it's 
+    inside a container that is a sibling of the checkbox */
+    #menu-toggle:checked ~ .navigationbar,
+    #menu-toggle:checked ~ div .navigationbar,
+    #menu-toggle:checked ~ nav .navigationbar {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        display: flex !important;
+}
 
     /* --- MENU SLIDE-IN ANIMATION --- */
     .navigationbar {
