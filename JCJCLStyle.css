@@ -1810,55 +1810,58 @@ Contact Us Page
 
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
-    
+
     /* 1. THE CLICKABLE AREA (Synced with your HTML class) */
+    /* 1. THE CLICKABLE AREA (The Gray Box) */
     .hamburger-trigger {
         display: block !important;
         position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
+        top: 15px !important;
+        right: 15px !important;
         width: 45px !important;
         height: 45px !important;
         cursor: pointer !important;
-        z-index: 2000001 !important; /* Top layer */
-        background-color: rgba(0,0,0,0.3) !important; /* Slight dark box so you can see it */
-        border-radius: 5px;
+        z-index: 2000000 !important; 
+        /* Change '0.3' to '0' once you are happy with the position to make the box invisible */
+        background-color: rgba(0,0,0,0.3) !important; 
+        border-radius: 8px;
     }
 
-    /* 2. THE VISUAL LINES (Synced with your HTML class) */
+    /* 2. THE VISUAL LINES (Force them to the front) */
     .visual-hamburger {
         display: flex !important;
         flex-direction: column;
         justify-content: space-around;
         position: fixed !important;
-        top: 27px; /* Adjusted to center inside the trigger */
-        right: 27px;
-        width: 30px;
-        height: 25px;
-        z-index: 2000000 !important; 
-        pointer-events: none; /* Clicks pass through to the trigger */
+        top: 22px !important; /* Centered inside the 45px box */
+        right: 22px !important;
+        width: 31px !important;
+        height: 28px !important;
+        z-index: 2000001 !important; /* HIGHER than the trigger so they show up */
+        pointer-events: none !important; /* Vital: Let clicks pass through to the trigger */
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .visual-hamburger span {
         display: block !important;
         width: 100% !important;
-        height: 3px !important;
+        height: 4px !important; /* Slightly thicker for visibility */
         background-color: white !important; 
-        border-radius: 10px;
-        transition: all 0.3s ease-in-out;
+        border-radius: 10px !important;
+        transition: all 0.3s ease-in-out !important;
     }
 
-    /* --- ANIMATION --- */
+    /* 3. THE ANIMATION (Syncing with the Checkbox) */
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+        transform: translateY(10px) rotate(45deg) !important;
     }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) {
-        opacity: 0;
+        opacity: 0 !important;
     }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+        transform: translateY(-10px) rotate(-45deg) !important;
     }
-
     #menu-toggle { display: none !important; }
 
     /* --- THE NAVIGATION MENU --- */
