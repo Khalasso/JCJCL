@@ -201,45 +201,36 @@ nav {
 }
 
 
-/* --- HERO REPAIR (Restored Dimensions) --- */
+
+/* --- HERO REPAIR (Fully Responsive) --- */
+/* --- HERO REPAIR (Full Video Visibility) --- */
 .video-header {
     width: 100%;
-    height: auto;
+    /* Remove fixed height: the aspect-ratio will now dictate the height */
+    height: auto; 
     margin: 0;
     padding: 0;
     display: block;
     position: relative;
     overflow: hidden;
+    background-color: black;
+    /* This ensures the header stays 16:9 (standard video shape) */
+    aspect-ratio: 16 / 9; 
 }
 
-/* Video: Restored to your original dimensions */
 .video-header video {
     display: block;
-    width: 100vw;
-    height: auto;
-    max-width: 100vw;
-}
-
-/* Dark overlay: Integrated with your original ::before logic */
-.video-header::before {
-    content: "";
+    width: 100%;
+    height: 100%;
+    /* 'contain' ensures the whole video is seen, 'cover' fills the space */
+    /* If you want NO cropping at all, use 'fill' or 'contain' */
+    object-fit: fill; 
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    /* This creates a shadow at the top and bottom but leaves the middle clear */
-    background: linear-gradient(
-        to bottom, 
-        rgba(0, 0, 0, 0.5) 0%,   /* Darker at the very top for the Nav Bar */
-        rgba(0, 0, 0, 0) 40%,    /* Completely clear in the middle */
-        rgba(0, 0, 0, 0) 60%,    /* Completely clear in the middle */
-        rgba(0, 0, 0, 0.5) 100%  /* Darker at the bottom for contrast */
-    );
-    z-index: 1;
 }
 
-/* Text overlay: Positioned over the video with refined fonts */
+/* Ensure the overlay still covers the fluid height */
 .header-overlay {
     position: absolute;
     top: 0;
@@ -250,30 +241,45 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white; /* Changed from darkcyan/black for better contrast on dark overlay */
-    text-align: center;
-    pointer-events: none;
     z-index: 2;
+    pointer-events: none;
 }
 
-/* Text overlay content container */
+/* Dark overlay: Keep your original logic but ensure it covers the height */
+.video-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.6) 0%, 
+        rgba(0, 0, 0, 0) 40%, 
+        rgba(0, 0, 0, 0) 60%, 
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
+}
+
 .overlay-content h1 {
-    font-size: 1.2rem;
-    letter-spacing: 6px;
+    /* Use clamp so the font size scales smoothly between 1rem and 1.2rem */
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    letter-spacing: 4px;
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* Added shadow to match the h2 */
     text-shadow: 0px 4px 15px rgba(0,0,0,0.6); 
+    color: white;
 }
 
 .overlay-content h2 {
-    font-size: 4.5rem;
+    /* Huge jump for desktop, shrinks for mobile */
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
     margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* This is the shadow we are matching */
-    text-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+    text-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+    color: white;
 }
 
 .header-line {
@@ -281,8 +287,8 @@ nav {
     height: 4px;
     background: skyblue;
     margin: 25px auto;
-    /* Added box-shadow to the blue line so it stands out too */
     box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+    color: white;
 }
 
 /* --- HOME CONTENT LAYOUT --- */
@@ -1767,5 +1773,14 @@ Contact Us Page
 
     .fax-container p {
         font-size: 17px !important;
+    }
+
+    .video-header {
+        height: 50vh !important; /* Shorter header on mobile */
+        min-height: 300px !important;
+    }
+
+    .overlay-content h1 {
+        letter-spacing: 2px !important; /* Tighter letters for small screens */
     }
 }
