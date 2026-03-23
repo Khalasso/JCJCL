@@ -1820,7 +1820,7 @@ Contact Us Page
         padding: 0;
         margin: 15px;
         /* Increased z-index to stay above the video overlay */
-        z-index: 10002; 
+        z-index: 1000000 !important; 
     }
 
     .hamburger span {
