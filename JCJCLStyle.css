@@ -1714,24 +1714,27 @@ Contact Us Page
         left: 0 !important;
         width: 100% !important;
         background-color: white !important;
-        /* Ensure this is the highest layer on the page */
         z-index: 10001 !important; 
         max-height: 85vh !important; 
         padding: 0 !important;
         margin: 0 !important;
-        
-        /* Start the menu off-screen to the left */
+
+        /* 1. HIDE IT FULLY BEFORE TOGGLE */
         transform: translateX(-100%); 
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        visibility: hidden; /* This prevents "ghost" clicks on invisible links */
+        opacity: 0;         /* Makes the fade-in smoother */
+        
+        transition: transform 0.4s ease, opacity 0.3s ease, visibility 0.3s;
         
         overflow-y: auto !important; 
-        -webkit-overflow-scrolling: touch;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
     }
 
-    /* When checked, slide the menu to the center (0%) */
+    /* 2. SHOW IT FULLY WHEN CHECKED */
     #menu-toggle:checked ~ .navigationbar {
-        transform: translateX(0);
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     /* --- CLEANUP & ALIGNMENT --- */
