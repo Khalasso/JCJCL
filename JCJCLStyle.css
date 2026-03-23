@@ -1952,6 +1952,8 @@ Contact Us Page
 
     /* --- PERFECTLY ALIGNED FLAT MENU --- */
 
+    /* --- COMPLETE FLAT MENU FIX --- */
+
     /* 1. Reset all containers to kill hidden indents */
     .navigationbar, 
     .navigationbar ul, 
@@ -1963,22 +1965,24 @@ Contact Us Page
         width: 100% !important;
         display: block !important;
         background: white !important;
-        box-shadow: none !important;
     }
 
-    /* 2. Hide the "Parent" labels (Testing, Chapter News, etc.) */
+    /* 2. THE SURGERY: Hide ONLY the "Label" parents (the ones with arrows/dropdowns) */
+    /* This assumes your dropdown parents have the class 'dropdown' */
     .navigationbar > li.dropdown > a {
         display: none !important;
     }
 
-    /* 3. Standardize every single link for a uniform look */
+    /* 3. ENSURE ALL OTHER LINKS SHOW UP */
+    /* This forces Events, Certamen, NLE, etc., to be visible and styled */
     .navigationbar a, 
+    .navigationbar li a,
     .navigationbar .dropdown-menu li a {
         display: flex !important;
         align-items: center !important; 
-        height: 60px !important; /* Identical row height */
-        padding: 0 25px !important; /* Equal side spacing */
-        font-size: 18px !important;
+        height: 60px !important; 
+        padding: 0 25px !important; 
+        font-size: 17px !important; /* Slightly smaller to fit more on screen */
         color: #333 !important;
         text-decoration: none !important;
         border-bottom: 1px solid #f0f0f0 !important;
@@ -1986,7 +1990,7 @@ Contact Us Page
         box-sizing: border-box !important;
     }
 
-    /* 4. The Hamburger UI (Merged & Cleaned) */
+    /* 4. THE HAMBURGER & NAVIGATION LOGIC (Restored) */
     .hamburger-trigger { 
         display: block !important; 
         position: fixed !important; 
@@ -2015,7 +2019,6 @@ Contact Us Page
         border-radius: 10px; 
     }
 
-    /* 5. Logic & Animation */
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
@@ -2027,7 +2030,8 @@ Contact Us Page
         z-index: 1999999; 
         transform: translateX(-100%); 
         transition: transform 0.3s; 
-        padding-top: 80px !important; 
+        padding-top: 70px !important; /* Adjusted for better spacing */
+        overflow-y: auto !important; /* Allows scrolling if the list is long */
     }
 
     #menu-toggle:checked ~ .navigationbar { 
