@@ -1838,117 +1838,82 @@ Contact Us Page
         padding: 0 15px 15px 15px !important;
     }
 
-    /* 2. SURGICAL FIX FOR MIDDLE SCHOOL VISIT (HERO-MAGAZINE) */
-    /* This forces the complex Middle School HTML to look like a standard Box */
-    .hero-magazine.spotlight {
+    /* 1. UNIVERSAL EVENT & HERO-MAGAZINE BOX (Card Style) */
+    /* This forces all event sections, including Middle School, into a standard Box */
+    .event-section, 
+    .hero-split, 
+    .hero-gallery, 
+    .hero-magazine {
         display: flex !important;
         flex-direction: column !important;
         background: white !important;
         border: 1px solid #ddd !important;
         border-radius: 12px !important;
-        margin: 20px 10px !important;
+        margin: 20px 10px !important; /* Space between cards, centered on screen */
+        width: auto !important; /* Margin defines the width */
         overflow: hidden !important;
-        padding: 0 !important;
+        padding: 0 !important; /* Let image hit edges */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     }
 
-    .magazine-content {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    /* Move the image to the top of the box */
-    .spotlight-image-container {
-        order: -1 !important; /* Forces image above text */
+    /* 2. CONSISTENT IMAGE SIZING (Top of the Box) */
+    /* Targets every possible image container in all HTML structures */
+    .hero-image-side, 
+    .gallery-container, 
+    .spotlight-image-container,
+    .gallery-item.main,
+    .main-spotlight-img {
         width: 100% !important;
-        height: 250px !important;
+        height: 250px !important; /* forces a UNIFORM height for all event photos */
         margin: 0 !important;
     }
 
-    .main-spotlight-img, .main-spotlight-img img {
+    .hero-image-side img, 
+    .gallery-item img, 
+    .main-spotlight-img img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
-        border-radius: 0 !important;
+        object-fit: cover !important; /* THE SECRET: Crops instead of squishing */
+        border-radius: 0 !important; /* Image fills the top of the card */
     }
 
-    .image-accent-block { display: none !important; } /* Deletes the gray/maroon block */
-
+    /* 3. CONSISTENT TEXT ALIGNMENT (Inside the Box) */
+    .hero-text-side, 
+    .gallery-info, 
     .magazine-text {
         padding: 20px !important;
-        text-align: center !important;
+        text-align: left !important; /* readable alignment for main text */
+        box-sizing: border-box !important;
     }
 
+    .hero-text-side h2, 
+    .gallery-info h2, 
     .magazine-text h2 {
         font-size: 24px !important;
-        color: #800000 !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* 3. SATURNALIA & FALL FORUM (HERO-SPLIT / GALLERY) */
-    .hero-split, .hero-gallery {
-        display: flex !important;
-        flex-direction: column !important;
-        background: white !important;
-        border: 1px solid #ddd !important;
-        border-radius: 12px !important;
-        margin: 20px 10px !important;
-        overflow: hidden !important;
-        padding: 0 !important;
-    }
-
-    /* Keep the Main Image at the top */
-    .hero-image-side, .gallery-item.main {
-        width: 100% !important;
-        height: 250px !important;
-        margin: 0 !important;
-    }
-
-    .hero-image-side img, .gallery-item.main img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
-
-    /* SURGERY ON SATURNALIA SUB-BOX */
-    .gallery-item.sub {
-        display: block !important; /* Bring the box back! */
-        width: 100% !important;
-    }
-
-    .gallery-item.sub img {
-        display: none !important; /* ONLY hide the second image */
-    }
-
-    /* FORMAT THE TEXT FOR BOTH */
-    .hero-text-side, .gallery-info {
-        padding: 20px !important;
-        text-align: center !important;
-        display: block !important;
-    }
-
-    .hero-text-side h2, .gallery-info h2 {
-        font-size: 24px !important;
-        color: #800000 !important;
+        color: #800000 !important; /* Johns Creek Maroon */
         margin-top: 0 !important;
         margin-bottom: 10px !important;
+        text-align: center !important; /* Center the titles only */
     }
 
-    .hero-text-side p, .gallery-info p {
-        font-size: 15px !important;
-        line-height: 1.5 !important;
-        color: #333 !important;
+    /* 4. THE EXTRAS (Delete the "Crooked" bits) */
+    /* Hide the floating images, accent blocks, and sub-images that break the box */
+    .floating-img, 
+    .image-accent-block, 
+    .gallery-item.sub img {
+        display: none !important;
     }
 
-    /* Restore the Date for Saturnalia */
-    .gallery-info .event-date-alt {
+    /* 5. THE DATE (Bottom of the Box) */
+    .event-date-alt {
         display: block !important;
-        margin-top: 15px !important;
+        font-size: 14px !important;
         font-weight: bold !important;
-        color: #777 !important;
+        color: #888 !important;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+        text-align: center;
     }
-
-    /* Keep hiding the Fall Forum secondary image */
-    .floating-img { display: none !important; }
 
     
 
