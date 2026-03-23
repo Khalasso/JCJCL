@@ -2043,4 +2043,108 @@ Contact Us Page
     .navigationbar li.dropdown::after {
         display: none !important;
     }
+
+    /* --- NEW FLEXBOX EVENT LAYOUT --- */
+    .event-card, 
+    .convention-container, 
+    .event-container {
+        display: flex !important;
+        flex-direction: column !important; /* Image on top, text on bottom */
+        align-items: center !important;
+        background: white !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        margin-bottom: 30px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+        width: 95% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Ensure the image takes up the full width of the flexbox */
+    .event-image, 
+    .event-preview {
+        width: 100% !important;
+        height: 250px !important; /* Fixed height for all event photos */
+        margin: 0 !important;
+    }
+
+    .event-image img, 
+    .event-preview img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Crops to fit the box perfectly */
+        border-radius: 0 !important; /* We use the card's border-radius instead */
+    }
+
+    /* 2. REMOVE THE SECOND PICTURE (Fall Forum Specific) */
+    /* This finds the second image in any event preview and hides it */
+    .event-preview img:nth-of-type(2),
+    .event-image img:nth-of-type(2) {
+        display: none !important;
+    }
+
+    /* 3. TEXT ALIGNMENT */
+    .event-text, 
+    .convention-text {
+        padding: 20px !important;
+        width: 100% !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* --- HERO-SPLIT SECTION FIX (FALL FORUM) --- */
+    .hero-split {
+        display: flex !important;
+        flex-direction: column !important; /* Stacks image on top of text */
+        align-items: center !important;
+        text-align: center !important;
+        padding: 20px 10px !important;
+    }
+
+    /* 1. Make the image side full width */
+    .hero-image-side {
+        width: 100% !important;
+        position: relative !important;
+        margin-bottom: 25px !important;
+    }
+
+    .hero-image-side img {
+        width: 100% !important;
+        max-width: 400px !important; /* Prevents it from getting too big */
+        height: 250px !important;
+        object-fit: cover !important;
+        border-radius: 12px !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+    }
+
+    /* 2. REMOVE THE SECOND PICTURE (Floating Img) */
+    .hero-image-side .floating-img {
+        display: none !important; /* Deletes the overlapping 'Fall Forum Sub' image */
+    }
+
+    /* 3. Text side adjustments */
+    .hero-text-side {
+        width: 100% !important;
+        padding: 0 15px !important;
+    }
+
+    .hero-text-side h2 {
+        font-size: 28px !important;
+        margin-bottom: 15px !important;
+        color: #800000 !important; /* Johns Creek Maroon */
+    }
+
+    .hero-text-side p {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        text-align: left !important; /* Easier to read paragraph text left-aligned */
+    }
+
+    .event-date-alt {
+        display: inline-block !important;
+        margin-top: 15px !important;
+        font-weight: bold !important;
+        color: #555 !important;
+    }
 }
