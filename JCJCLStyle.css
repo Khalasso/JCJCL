@@ -1811,7 +1811,6 @@ Contact Us Page
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
 
-    /* 1. THE CLICKABLE AREA (Synced with your HTML class) */
     /* 1. THE CLICKABLE AREA (The Gray Box) */
     .hamburger-trigger {
         display: block !important;
@@ -1822,23 +1821,22 @@ Contact Us Page
         height: 45px !important;
         cursor: pointer !important;
         z-index: 2000000 !important; 
-        /* Change '0.3' to '0' once you are happy with the position to make the box invisible */
         background-color: rgba(0,0,0,0.3) !important; 
         border-radius: 8px;
     }
 
-    /* 2. THE VISUAL LINES (Force them to the front) */
+    /* 2. THE VISUAL LINES */
     .visual-hamburger {
         display: flex !important;
         flex-direction: column;
         justify-content: space-around;
         position: fixed !important;
-        top: 22px !important; /* Centered inside the 45px box */
+        top: 22px !important;
         right: 22px !important;
         width: 31px !important;
         height: 28px !important;
-        z-index: 2000001 !important; /* HIGHER than the trigger so they show up */
-        pointer-events: none !important; /* Vital: Let clicks pass through to the trigger */
+        z-index: 2000001 !important; 
+        pointer-events: none !important; 
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -1846,13 +1844,13 @@ Contact Us Page
     .visual-hamburger span {
         display: block !important;
         width: 100% !important;
-        height: 4px !important; /* Slightly thicker for visibility */
+        height: 4px !important;
         background-color: white !important; 
         border-radius: 10px !important;
         transition: all 0.3s ease-in-out !important;
     }
 
-    /* 3. THE ANIMATION (Syncing with the Checkbox) */
+    /* 3. THE ANIMATION */
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) {
         transform: translateY(10px) rotate(45deg) !important;
     }
@@ -1874,7 +1872,7 @@ Contact Us Page
         width: 100% !important;
         height: 100dvh !important;
         background-color: white !important;
-        z-index: 1999999 !important; /* Just below the icon */
+        z-index: 1999999 !important; 
         padding: 80px 0 env(safe-area-inset-bottom) 0 !important;
         margin: 0 !important;
         transform: translateX(-100%); 
@@ -1883,140 +1881,23 @@ Contact Us Page
         box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
     }
 
-    /* --- THE TOGGLE LOGIC --- */
     #menu-toggle:checked ~ .navigationbar,
     #menu-toggle:checked ~ div .navigationbar,
     #menu-toggle:checked ~ nav .navigationbar {
         transform: translateX(0) !important;
     }
 
-    /* --- CLEANUP & ALIGNMENT --- */
-    .navigationbar > li.dropdown > a {
-        display: none !important; 
-    }
-
-    .navigationbar .dropdown-menu {
-        display: block !important; 
-        position: static !important;
-        width: 100% !important;
-        background-color: white !important;
-        padding: 0 !important; 
-        margin: 0 !important;
-    }
-
-    .navigationbar li, .dropdown-menu li {
-        width: 100% !important;
-        border-bottom: 1px solid #eee !important;
-        list-style: none !important;
-    }
-
-    .navigationbar a, .dropdown-menu li a {
-        font-size: 18px !important;
-        display: block !important;
-        padding: 20px 25px !important;
-        color: black !important;
-        text-decoration: none !important;
-    }
-
-    body { padding-top: 80px !important; }
-
-    /* --- CONTENT & IMAGE FIXES --- */
-    .nle-about-card {
-        padding: 30px 20px !important;
-        border-left-width: 6px !important;
-        margin: 0 10px;
-    }
-
-    .nle-about-card h3 { font-size: 26px !important; }
-    .nle-text-body p { font-size: 17px !important; }
-    .fax-info-footer { padding: 40px 15px !important; }
-    .fax-container p { font-size: 17px !important; }
-
-    .video-header {
-        height: 50vh !important;
-        min-height: 300px !important;
-    }
-
-    .overlay-content h1 { letter-spacing: 2px !important; }
-    .home-intro { margin-top: 20px !important; }
-    .intro-content { padding: 30px 20px !important; text-align: center; }
-    .link-buttons { justify-content: center; }
-
-    .vocator-card, .convention-container, .event-card {
-        flex-direction: column !important; 
-        align-items: center;
-        text-align: center;
-    }
-
-    .vocator-preview, .convention-image, .event-image {
-        width: 100% !important;
-        max-width: 350px;
-        margin: 20px auto;
-    }
-
-    .vocator-preview img, .convention-image img, .event-image img {
-        width: 100% !important;
-        height: 250px !important;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .vocator-text, .convention-text, .event-text {
-        width: 100% !important;
-        padding: 15px !important;
-    }
-
-    /* --- EVENTS PAGE IMAGE FIX --- */
-    .event-card, 
-    .event-container, 
-    .convention-container {
-        display: flex !important;
-        flex-direction: column !important; /* Stacks image above text */
-        align-items: center !important;
-        width: 100% !important;
-        padding: 10px 0 !important;
-    }
-
-    .event-image, 
-    .event-preview,
-    .convention-image {
-        width: 100% !important;
-        max-width: 350px !important; /* Keeps it from getting too huge on tablets */
-        margin: 0 auto 20px auto !important;
-    }
-
-    .event-image img, 
-    .event-preview img, 
-    .convention-image img {
-        width: 100% !important;
-        height: 220px !important; /* Forces a consistent, clean height */
-        object-fit: cover !important; /* THE SECRET: Crops instead of squishing */
-        border-radius: 12px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-        display: block !important;
-    }
-
-    .event-text, 
-    .convention-text {
-        width: 90% !important; /* Gives the text some breathing room on the sides */
-        text-align: center !important;
-        padding: 0 15px !important;
-    }
-
     /* --- STANDARDIZE ALL MENU ITEMS --- */
-
-    /* 1. Reset all backgrounds to plain white */
     .navigationbar li, 
     .navigationbar .dropdown-menu, 
     .navigationbar .dropdown-menu li {
         background: white !important;
-        background-image: none !important; /* Kills any gradients */
+        background-image: none !important;
         border-bottom: 1px solid #f0f0f0 !important;
         width: 100% !important;
         margin: 0 !important;
     }
 
-    /* 2. Standardize the Links (Text) */
     .navigationbar a, 
     .navigationbar li a, 
     .navigationbar .dropdown-menu li a {
@@ -2027,124 +1908,96 @@ Contact Us Page
         display: block !important;
         text-align: left !important;
         text-decoration: none !important;
-        background: transparent !important; /* Prevents individual link gradients */
-        transition: background 0.2s ease;
     }
 
-    /* 3. A Single, Unified Hover State */
-    .navigationbar a:hover, 
-    .navigationbar li a:hover, 
-    .navigationbar .dropdown-menu li a:hover {
-        background-color: #f9f9f9 !important; /* Very subtle light gray on tap */
-        color: #800000 !important; /* JCL Maroon text on hover */
+    .navigationbar a:hover {
+        background-color: #f9f9f9 !important;
+        color: #800000 !important;
     }
 
-    /* 4. Remove any "Arrow" icons or extra padding from dropdown parents */
-    .navigationbar li.dropdown::after {
-        display: none !important;
-    }
-
-    /* --- NEW FLEXBOX EVENT LAYOUT --- */
+    /* --- UNIVERSAL EVENT & HERO-SPLIT FIX --- */
+    /* Targets Fall Forum, Middle School Visits, and any Hero sections */
+    .event-section, 
+    .hero-split, 
     .event-card, 
-    .convention-container, 
-    .event-container {
+    .convention-container {
         display: flex !important;
-        flex-direction: column !important; /* Image on top, text on bottom */
+        flex-direction: column !important; 
         align-items: center !important;
-        background: white !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
-        margin-bottom: 30px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
-        width: 95% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* Ensure the image takes up the full width of the flexbox */
-    .event-image, 
-    .event-preview {
-        width: 100% !important;
-        height: 250px !important; /* Fixed height for all event photos */
-        margin: 0 !important;
-    }
-
-    .event-image img, 
-    .event-preview img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important; /* Crops to fit the box perfectly */
-        border-radius: 0 !important; /* We use the card's border-radius instead */
-    }
-
-    /* 2. REMOVE THE SECOND PICTURE (Fall Forum Specific) */
-    /* This finds the second image in any event preview and hides it */
-    .event-preview img:nth-of-type(2),
-    .event-image img:nth-of-type(2) {
-        display: none !important;
-    }
-
-    /* 3. TEXT ALIGNMENT */
-    .event-text, 
-    .convention-text {
-        padding: 20px !important;
-        width: 100% !important;
         text-align: center !important;
+        padding: 30px 10px !important;
+        width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* --- HERO-SPLIT SECTION FIX (FALL FORUM) --- */
-    .hero-split {
-        display: flex !important;
-        flex-direction: column !important; /* Stacks image on top of text */
-        align-items: center !important;
-        text-align: center !important;
-        padding: 20px 10px !important;
-    }
-
-    /* 1. Make the image side full width */
-    .hero-image-side {
+    .hero-image-side, 
+    .event-image, 
+    .event-preview {
         width: 100% !important;
+        max-width: 450px !important;
+        margin: 0 auto 20px auto !important;
         position: relative !important;
-        margin-bottom: 25px !important;
     }
 
-    .hero-image-side img {
+    .hero-image-side img, 
+    .event-image img, 
+    .event-preview img {
         width: 100% !important;
-        max-width: 400px !important; /* Prevents it from getting too big */
-        height: 250px !important;
-        object-fit: cover !important;
+        height: 250px !important; /* Uniform height for all events */
+        object-fit: cover !important; 
         border-radius: 12px !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
+        display: block !important;
     }
 
-    /* 2. REMOVE THE SECOND PICTURE (Floating Img) */
-    .hero-image-side .floating-img {
-        display: none !important; /* Deletes the overlapping 'Fall Forum Sub' image */
+    /* Remove second/floating images from ALL event sections */
+    .floating-img, 
+    .sub-img,
+    .hero-image-side img:nth-of-type(2),
+    .event-preview img:nth-of-type(2) {
+        display: none !important;
     }
 
-    /* 3. Text side adjustments */
-    .hero-text-side {
+    .hero-text-side, 
+    .event-text {
         width: 100% !important;
         padding: 0 15px !important;
+        box-sizing: border-box !important;
     }
 
-    .hero-text-side h2 {
+    .hero-text-side h2, 
+    .event-text h3 {
         font-size: 28px !important;
-        margin-bottom: 15px !important;
-        color: #800000 !important; /* Johns Creek Maroon */
+        margin-bottom: 10px !important;
+        color: #800000 !important;
     }
 
-    .hero-text-side p {
+    .hero-text-side p, 
+    .event-text p {
         font-size: 16px !important;
         line-height: 1.6 !important;
-        text-align: left !important; /* Easier to read paragraph text left-aligned */
+        text-align: left !important;
     }
 
     .event-date-alt {
         display: inline-block !important;
         margin-top: 15px !important;
         font-weight: bold !important;
-        color: #555 !important;
+    }
+
+    /* --- GENERAL SITE CLEANUP --- */
+    body { padding-top: 80px !important; }
+
+    .video-header {
+        height: 50vh !important;
+        min-height: 300px !important;
+    }
+
+    .nle-about-card {
+        padding: 30px 20px !important;
+        border-left-width: 6px !important;
+        margin: 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
 }
