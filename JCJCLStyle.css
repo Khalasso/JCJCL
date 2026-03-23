@@ -1814,27 +1814,28 @@ Contact Us Page
     .hamburger {
         display: flex !important;
         position: fixed !important;
-        top: 10px;
-        right: 10px;
-        width: 45px;
-        height: 45px;
-        cursor: pointer;
-        z-index: 1000001 !important; /* Above everything */
-        background: transparent;
-        margin: 0;
-        padding: 0;
+        top: 20px !important;
+        right: 20px !important;
+        width: 40px !important;
+        height: 35px !important;
+        cursor: pointer !important;
+        z-index: 2000000 !important; /* Extremely high */
+        background-color: rgba(0,0,0,0.5) !important; /* Temporary dark box to see it */
+        padding: 5px !important;
+        border-radius: 5px;
+        flex-direction: column;
+        justify-content: space-around;
     }
 
-    /* 2. THE VISUAL ICON (The 3 lines) */
+    /* The 3 White Lines */
     .hamburger span {
-        display: block;
-        width: 30px;
-        height: 3px;
-        background-color: white; 
+        display: block !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: white !important; 
         border-radius: 10px;
         transition: all 0.3s ease-in-out;
-        position: absolute;
-        right: 7px;
+        position: static !important; /* Resetting from previous absolute attempt */
     }
 
     /* Position the 3 lines vertically */
