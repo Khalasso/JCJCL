@@ -1666,29 +1666,30 @@ Contact Us Page
         height: 25px;
         cursor: pointer;
         padding: 0;
-        margin: 10px;
-        z-index: 10001;
+        margin: 15px;
+        /* Increased z-index to stay above the video overlay */
+        z-index: 10002; 
     }
 
     .hamburger span {
         width: 100%;
         height: 3px;
-        background-color: black;
+        /* Changed to white so it's visible over the dark video header */
+        background-color: white; 
         border-radius: 10px;
         transition: all 0.3s ease-in-out; 
     }
 
-    /* --- HAMBURGER ANIMATION --- */
-    /* We use the ~ (sibling) and space (descendant) selectors to find the spans */
-    #menu-toggle:checked ~ .navtop .hamburger span:nth-child(1) {
+    /* --- HAMBURGER ANIMATION (Direct Sibling Selectors) --- */
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
 
-    #menu-toggle:checked ~ .navtop .hamburger span:nth-child(2) {
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
         opacity: 0;
     }
 
-    #menu-toggle:checked ~ .navtop .hamburger span:nth-child(3) {
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
 
@@ -1696,29 +1697,30 @@ Contact Us Page
 
     /* --- MENU SLIDE-IN ANIMATION --- */
     .navigationbar {
-        display: flex !important; /* Always flex, but hidden via transform */
+        display: flex !important;
         flex-direction: column !important;
         position: absolute !important;
         top: 100% !important; 
         left: 0 !important;
         width: 100% !important;
         background-color: white !important;
-        z-index: 9999 !important;
-        max-height: 75vh !important; 
+        /* Ensure this is the highest layer on the page */
+        z-index: 10001 !important; 
+        max-height: 85vh !important; 
         padding: 0 !important;
         margin: 0 !important;
         
         /* Start the menu off-screen to the left */
         transform: translateX(-100%); 
-        transition: transform 0.4s ease-in-out;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         
         overflow-y: auto !important; 
         -webkit-overflow-scrolling: touch;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2) !important;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
     }
 
     /* When checked, slide the menu to the center (0%) */
-    #menu-toggle:checked ~ .navtop .navigationbar {
+    #menu-toggle:checked ~ .navigationbar {
         transform: translateX(0);
     }
 
@@ -1745,42 +1747,31 @@ Contact Us Page
     .navigationbar a, .dropdown-menu li a {
         font-size: 18px !important;
         display: block !important;
-        padding: 15px 25px !important;
+        padding: 20px 25px !important;
         color: black !important;
         text-decoration: none !important;
     }
 
     body { padding-top: 80px !important; }
 
-    /* --- NLE ABOUT CARD ADJUSTMENTS --- */
+    /* --- PAGE CONTENT ADJUSTMENTS --- */
     .nle-about-card {
         padding: 30px 20px !important;
         border-left-width: 6px !important;
         margin: 0 10px;
     }
 
-    .nle-about-card h3 {
-        font-size: 26px !important;
-    }
-
-    .nle-text-body p {
-        font-size: 17px !important;
-    }
-
-    .fax-info-footer {
-        padding: 40px 15px !important;
-    }
-
-    .fax-container p {
-        font-size: 17px !important;
-    }
+    .nle-about-card h3 { font-size: 26px !important; }
+    .nle-text-body p { font-size: 17px !important; }
+    .fax-info-footer { padding: 40px 15px !important; }
+    .fax-container p { font-size: 17px !important; }
 
     .video-header {
-        height: 50vh !important; /* Shorter header on mobile */
+        height: 50vh !important;
         min-height: 300px !important;
     }
 
     .overlay-content h1 {
-        letter-spacing: 2px !important; /* Tighter letters for small screens */
+        letter-spacing: 2px !important;
     }
 }
