@@ -38,6 +38,15 @@ header {
     padding: 20px;
 }
 
+
+/* Global fix for images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
 /* Styling for navigation bar */
 
     /* 
@@ -311,6 +320,88 @@ nav {
     margin-bottom: 20px;
 }
 
+
+/* Chapter Description */
+/* --- HOME INTRO CARD --- */
+.home-intro {
+    max-width: 900px;
+    margin: -40px auto 60px; /* Pulls it slightly over the video for a layered look */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10; /* Ensures it sits above the video bottom */
+}
+
+.intro-card {
+    background: #ffffff;
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.intro-accent {
+    width: 10px;
+    background-color: #800000; /* JCL Maroon */
+    flex-shrink: 0;
+}
+
+.intro-content {
+    padding: 50px;
+}
+
+.latin-greeting {
+    display: block;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #800000;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.intro-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #222;
+    font-family: Georgia, serif;
+}
+
+.intro-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Affiliation Section */
+.affiliation-links span {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.link-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.affil-btn {
+    text-decoration: none;
+    color: #800000;
+    border: 1px solid #800000;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.affil-btn:hover {
+    background-color: #800000;
+    color: #fff !important;
+}
+
 /* --- VOCATOR HIGHLIGHT --- */
 .vocator-card {
     display: flex;
@@ -421,6 +512,67 @@ nav {
     color: #666;
     line-height: 1.5;
     font-size: 15px;
+}
+
+
+
+
+/* --- VOCATOR TYPOGRAPHY & CONSISTENCY --- */
+
+.vocator-highlight {
+    padding: 40px 20px;
+}
+
+/* Issue Titles (Vol 1, 2, 3) */
+.vocator-text h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 28px;
+    color: #800000; /* JCL Maroon */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Description Text */
+.vocator-text p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+/* Download/Read Now Button */
+.download-btn {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #800000;
+    color: white !important;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 2px solid #800000;
+}
+
+.download-btn:hover {
+    background-color: transparent;
+    color: #800000 !important;
+    transform: translateY(-2px);
+}
+
+/* Image Preview Styling (Optional but recommended) */
+.vocator-preview img {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.vocator-card:hover .vocator-preview img {
+    transform: scale(1.02);
 }
 
 
@@ -1709,24 +1861,20 @@ Contact Us Page
     .navigationbar {
         display: flex !important;
         flex-direction: column !important;
-        position: absolute !important;
-        top: 100% !important; 
+        position: fixed !important;
+        top: 0 !important;
         left: 0 !important;
         width: 100% !important;
+        height: 100dvh !important;
         background-color: white !important;
-        z-index: 10001 !important; 
-        max-height: 85vh !important; 
-        padding: 0 !important;
+        z-index: 10001 !important;
+        padding: 80px 0 env(safe-area-inset-bottom) 0 !important;
         margin: 0 !important;
-
-        /* 1. HIDE IT FULLY BEFORE TOGGLE */
-        transform: translateX(-100%); 
-        visibility: hidden; /* This prevents "ghost" clicks on invisible links */
-        opacity: 0;         /* Makes the fade-in smoother */
-        
+        transform: translateX(-100%);
+        visibility: hidden;
+        opacity: 0;
         transition: transform 0.4s ease, opacity 0.3s ease, visibility 0.3s;
-        
-        overflow-y: auto !important; 
+        overflow-y: auto !important;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
     }
 
@@ -1786,5 +1934,64 @@ Contact Us Page
 
     .overlay-content h1 {
         letter-spacing: 2px !important;
+    }
+
+    .home-intro {
+        margin-top: 20px !important; /* Resets the overlap for mobile */
+    }
+
+    .intro-content {
+        padding: 30px 20px !important;
+        text-align: center;
+    }
+
+    .link-buttons {
+        justify-content: center;
+    }
+    .vocator-card {
+        flex-direction: column-reverse !important; /* Puts text above image or vice versa */
+        text-align: center;
+    }
+
+    .vocator-text h3 {
+        font-size: 24px !important;
+    }
+
+    .vocator-text p {
+        font-size: 16px !important;
+    }
+    .vocator-card, 
+    .convention-container, 
+    .event-card {
+        flex-direction: column !important; 
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Fix for Vocator Previews */
+    .vocator-preview, 
+    .convention-image, 
+    .event-image {
+        width: 100% !important;
+        max-width: 350px; /* Limits the size so it doesn't get massive */
+        margin: 20px auto;
+    }
+
+    /* Prevent the actual image from distorting */
+    .vocator-preview img, 
+    .convention-image img, 
+    .event-image img {
+        width: 100% !important;
+        height: 250px !important; /* Set a consistent height */
+        object-fit: cover; /* This crops the edges instead of squishing the face */
+        border-radius: 10px;
+    }
+
+    /* Adjust text padding when stacked */
+    .vocator-text, 
+    .convention-text, 
+    .event-text {
+        width: 100% !important;
+        padding: 15px !important;
     }
 }
