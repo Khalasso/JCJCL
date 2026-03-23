@@ -1867,7 +1867,7 @@ Contact Us Page
         width: 100% !important;
         height: 100dvh !important;
         background-color: white !important;
-        z-index: 10001 !important;
+        z-index: 99999 !important;
         padding: 80px 0 env(safe-area-inset-bottom) 0 !important;
         margin: 0 !important;
         transform: translateX(-100%);
@@ -1883,6 +1883,7 @@ Contact Us Page
         transform: translateX(0) !important;
         visibility: visible !important;
         opacity: 1 !important;
+        display: flex !important;
     }
 
     /* --- CLEANUP & ALIGNMENT --- */
