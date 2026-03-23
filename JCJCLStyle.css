@@ -1810,134 +1810,118 @@ Contact Us Page
 
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
-    /* 0. RESET OVERFLOW (Fixes picture going off the right) */
-    * {
-        box-sizing: border-box !important;
-    }
-
-    body, html {
-        overflow-x: hidden !important;
-        width: 100% !important;
-    }
-
-    /* 1. HAMBURGER UI (Restored) */
-    .hamburger-trigger {
-        display: block !important;
-        position: fixed !important;
-        top: 15px !important;
-        right: 15px !important;
-        width: 45px !important;
-        height: 45px !important;
-        cursor: pointer !important;
-        z-index: 2000000 !important; 
-        background-color: rgba(0,0,0,0.3) !important; 
-        border-radius: 8px;
-    }
-
-    .visual-hamburger {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: space-around;
-        position: fixed !important;
-        top: 22px !important;
-        right: 22px !important;
-        width: 31px !important;
-        height: 28px !important;
-        z-index: 2000001 !important; 
-        pointer-events: none !important; 
-    }
-
-    .visual-hamburger span {
-        display: block !important;
-        width: 100% !important;
-        height: 4px !important;
-        background-color: white !important; 
-        border-radius: 10px !important;
-    }
-
-    /* 2. NAVIGATION BAR (Re-Hidden) */
-    .navigationbar {
+    /* 1. RESTORE VOCATOR & NEWSLETTER BOXES */
+    .vocator-card, .convention-container, .event-card {
         display: flex !important;
         flex-direction: column !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
+        align-items: center !important;
+        text-align: center !important;
+        background: white !important;
+        border-radius: 12px !important;
+        margin-bottom: 25px !important;
+        overflow: hidden !important;
+    }
+
+    .vocator-preview img, .convention-image img, .event-image img {
         width: 100% !important;
-        height: 100dvh !important;
-        background-color: white !important;
-        z-index: 1999999 !important; 
-        transform: translateX(-100%); 
-        transition: transform 0.3s ease-in-out;
-        padding-top: 80px !important;
+        height: 250px !important; /* Fixed height you liked */
+        object-fit: cover !important;
     }
 
-    #menu-toggle:checked ~ .navigationbar {
-        transform: translateX(0) !important;
+    .vocator-text h3, .convention-text h2, .event-text h2 {
+        font-size: 22px !important; /* Smaller, cleaner text for cards */
+        margin-top: 15px !important;
     }
 
-    /* Flatten Menu & Remove Dropdown Parents */
-    .navigationbar > li.dropdown > a { display: none !important; }
-    .navigationbar .dropdown-menu { display: block !important; position: static !important; box-shadow: none !important; }
-    .navigationbar li, .dropdown-menu li { border-bottom: 1px solid #eee !important; width: 100% !important; }
-    .navigationbar a { padding: 20px !important; display: block !important; color: black !important; }
+    .vocator-text p, .convention-text p, .event-text p {
+        font-size: 15px !important; /* Restored readable size */
+        padding: 0 15px 15px 15px !important;
+    }
 
-    /* 3. EVENT BOXES (Portrait Fix) */
-    .event-section, 
-    .hero-split, 
-    .hero-gallery, 
-    .hero-magazine {
+    /* 2. SURGICAL FIX FOR MIDDLE SCHOOL VISIT (HERO-MAGAZINE) */
+    /* This forces the complex Middle School HTML to look like a standard Box */
+    .hero-magazine.spotlight {
         display: flex !important;
         flex-direction: column !important;
         background: white !important;
         border: 1px solid #ddd !important;
         border-radius: 12px !important;
-        margin: 20px 10px !important; /* Margin keeps it from touching screen edges */
-        width: auto !important; /* Crucial for portrait */
+        margin: 20px 10px !important;
         overflow: hidden !important;
         padding: 0 !important;
     }
 
-    /* Image Fix: Force it to stay inside the box */
-    .hero-image-side, 
-    .gallery-container, 
-    .spotlight-image-container,
-    .gallery-item.main,
-    .main-spotlight-img {
+    .magazine-content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Move the image to the top of the box */
+    .spotlight-image-container {
+        order: -1 !important; /* Forces image above text */
         width: 100% !important;
-        max-width: 100% !important;
-        height: 200px !important;
+        height: 250px !important;
         margin: 0 !important;
     }
 
-    .hero-image-side img, 
-    .gallery-item img, 
-    .main-spotlight-img img {
+    .main-spotlight-img, .main-spotlight-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+    }
+
+    .image-accent-block { display: none !important; } /* Deletes the gray/maroon block */
+
+    .magazine-text {
+        padding: 20px !important;
+        text-align: center !important;
+    }
+
+    .magazine-text h2 {
+        font-size: 24px !important;
+        color: #800000 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* 3. SATURNALIA & FALL FORUM (HERO-SPLIT / GALLERY) */
+    .hero-split, .hero-gallery {
+        display: flex !important;
+        flex-direction: column !important;
+        background: white !important;
+        border: 1px solid #ddd !important;
+        border-radius: 12px !important;
+        margin: 20px 10px !important;
+        overflow: hidden !important;
+    }
+
+    .hero-image-side, .gallery-item.main {
+        width: 100% !important;
+        height: 250px !important;
+    }
+
+    .hero-image-side img, .gallery-item.main img {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
     }
 
-    /* Text Fix: Center Alignment */
-    .hero-text-side, 
-    .gallery-info, 
-    .magazine-text {
-        width: 100% !important;
+    .floating-img, .gallery-item.sub { display: none !important; }
+
+    .hero-text-side, .gallery-info {
         padding: 20px !important;
-        text-align: center !important; /* Centered as requested */
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        text-align: center !important;
     }
 
-    .hero-text-side p, 
-    .gallery-info p, 
-    .magazine-text p {
-        text-align: center !important; /* Ensures the paragraph text centers too */
-        width: 100% !important;
-    }
-
-    /* Hide the extra bits */
-    .floating-img, .image-accent-block, .gallery-item.sub, #menu-toggle {
-        display: none !important;
-    }
+    /* 4. KEEP THE MENU & HAMBURGER (As they were working) */
+    .hamburger-trigger { display: block !important; position: fixed !important; top: 15px; right: 15px; width: 45px; height: 45px; z-index: 2000000; background-color: rgba(0,0,0,0.3); border-radius: 8px; }
+    .visual-hamburger { display: flex !important; flex-direction: column; justify-content: space-around; position: fixed !important; top: 22px; right: 22px; width: 31px; height: 28px; z-index: 2000001; pointer-events: none; }
+    .visual-hamburger span { display: block !important; width: 100%; height: 4px; background-color: white; border-radius: 10px; }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+    .navigationbar { display: flex !important; flex-direction: column !important; position: fixed !important; top: 0; left: 0; width: 100%; height: 100dvh; background-color: white; z-index: 1999999; transform: translateX(-100%); transition: transform 0.3s; padding-top: 80px; }
+    #menu-toggle:checked ~ .navigationbar { transform: translateX(0) !important; }
+    .navigationbar > li.dropdown > a { display: none !important; }
+    .navigationbar .dropdown-menu { display: block !important; position: static !important; box-shadow: none !important; }
 }
