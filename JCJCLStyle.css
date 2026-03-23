@@ -1811,7 +1811,7 @@ Contact Us Page
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
 
-    /* 1. THE CLICKABLE AREA (The Gray Box) */
+    /* 1. HAMBURGER UI */
     .hamburger-trigger {
         display: block !important;
         position: fixed !important;
@@ -1825,7 +1825,6 @@ Contact Us Page
         border-radius: 8px;
     }
 
-    /* 2. THE VISUAL LINES */
     .visual-hamburger {
         display: flex !important;
         flex-direction: column;
@@ -1837,8 +1836,6 @@ Contact Us Page
         height: 28px !important;
         z-index: 2000001 !important; 
         pointer-events: none !important; 
-        padding: 0 !important;
-        margin: 0 !important;
     }
 
     .visual-hamburger span {
@@ -1850,19 +1847,13 @@ Contact Us Page
         transition: all 0.3s ease-in-out !important;
     }
 
-    /* 3. THE ANIMATION */
-    #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) {
-        transform: translateY(10px) rotate(45deg) !important;
-    }
-    #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) {
-        opacity: 0 !important;
-    }
-    #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) {
-        transform: translateY(-10px) rotate(-45deg) !important;
-    }
+    /* ANIMATION */
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg) !important; }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0 !important; }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg) !important; }
     #menu-toggle { display: none !important; }
 
-    /* --- THE NAVIGATION MENU --- */
+    /* 2. REVERTED & STANDARDIZED NAVIGATION */
     .navigationbar {
         display: flex !important;
         flex-direction: column !important;
@@ -1873,131 +1864,105 @@ Contact Us Page
         height: 100dvh !important;
         background-color: white !important;
         z-index: 1999999 !important; 
-        padding: 80px 0 env(safe-area-inset-bottom) 0 !important;
+        padding: 80px 0 !important;
         margin: 0 !important;
         transform: translateX(-100%); 
-        transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+        transition: transform 0.4s ease;
         overflow-y: auto !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
     }
 
-    #menu-toggle:checked ~ .navigationbar,
-    #menu-toggle:checked ~ div .navigationbar,
-    #menu-toggle:checked ~ nav .navigationbar {
-        transform: translateX(0) !important;
-    }
+    #menu-toggle:checked ~ .navigationbar { transform: translateX(0) !important; }
 
-    /* --- STANDARDIZE ALL MENU ITEMS --- */
+    /* Flatten Dropdowns so everything is a standard list item */
     .navigationbar li, 
-    .navigationbar .dropdown-menu, 
     .navigationbar .dropdown-menu li {
-        background: white !important;
-        background-image: none !important;
-        border-bottom: 1px solid #f0f0f0 !important;
         width: 100% !important;
-        margin: 0 !important;
+        background: white !important;
+        border-bottom: 1px solid #eee !important;
+    }
+
+    .navigationbar .dropdown-menu {
+        display: block !important;
+        position: static !important;
+        box-shadow: none !important;
+        padding: 0 !important;
     }
 
     .navigationbar a, 
-    .navigationbar li a, 
     .navigationbar .dropdown-menu li a {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-        font-size: 18px !important;
+        padding: 18px 25px !important;
+        font-size: 17px !important;
         color: #333 !important;
-        padding: 20px 25px !important;
         display: block !important;
-        text-align: left !important;
         text-decoration: none !important;
     }
 
-    .navigationbar a:hover {
-        background-color: #f9f9f9 !important;
-        color: #800000 !important;
-    }
-
-    /* --- UNIVERSAL EVENT & HERO-SPLIT FIX --- */
-    /* Targets Fall Forum, Middle School Visits, and any Hero sections */
+    /* 3. UNIVERSAL EVENTS FIX (Fall Forum, Saturnalia, Middle School) */
+    /* This targets all 3 different HTML structures you used */
     .event-section, 
     .hero-split, 
-    .event-card, 
-    .convention-container {
+    .hero-gallery, 
+    .hero-magazine {
         display: flex !important;
-        flex-direction: column !important; 
+        flex-direction: column !important;
+        padding: 40px 20px !important;
         align-items: center !important;
-        text-align: center !important;
-        padding: 30px 10px !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
+    /* Normalize all image containers */
     .hero-image-side, 
-    .event-image, 
-    .event-preview {
+    .gallery-container, 
+    .spotlight-image-container,
+    .gallery-item.main {
         width: 100% !important;
         max-width: 450px !important;
-        margin: 0 auto 20px auto !important;
-        position: relative !important;
+        margin: 0 0 20px 0 !important;
     }
 
+    /* Force all event images to the same size */
     .hero-image-side img, 
-    .event-image img, 
-    .event-preview img {
+    .gallery-item img, 
+    .main-spotlight-img img {
         width: 100% !important;
-        height: 250px !important; /* Uniform height for all events */
-        object-fit: cover !important; 
+        height: 250px !important;
+        object-fit: cover !important;
         border-radius: 12px !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
-        display: block !important;
     }
 
-    /* Remove second/floating images from ALL event sections */
+    /* Hide sub-images/accents for Middle School and Fall Forum */
     .floating-img, 
-    .sub-img,
-    .hero-image-side img:nth-of-type(2),
-    .event-preview img:nth-of-type(2) {
+    .image-accent-block, 
+    .gallery-item.sub img {
         display: none !important;
     }
 
+    /* Normalize all text containers */
     .hero-text-side, 
-    .event-text {
+    .gallery-info, 
+    .magazine-text {
         width: 100% !important;
-        padding: 0 15px !important;
-        box-sizing: border-box !important;
+        text-align: left !important;
+        padding: 0 !important;
     }
 
     .hero-text-side h2, 
-    .event-text h3 {
-        font-size: 28px !important;
-        margin-bottom: 10px !important;
+    .gallery-info h2, 
+    .magazine-text h2 {
+        font-size: 26px !important;
         color: #800000 !important;
-    }
-
-    .hero-text-side p, 
-    .event-text p {
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        text-align: left !important;
+        margin-bottom: 15px !important;
+        text-align: center !important;
     }
 
     .event-date-alt {
-        display: inline-block !important;
+        display: block !important;
         margin-top: 15px !important;
-        font-weight: bold !important;
+        font-weight: bold;
+        color: #666;
     }
 
-    /* --- GENERAL SITE CLEANUP --- */
-    body { padding-top: 80px !important; }
-
-    .video-header {
-        height: 50vh !important;
-        min-height: 300px !important;
-    }
-
-    .nle-about-card {
-        padding: 30px 20px !important;
-        border-left-width: 6px !important;
-        margin: 10px !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
+    /* 4. CLEANUP */
+    body { padding-top: 70px !important; }
 }
