@@ -1810,55 +1810,52 @@ Contact Us Page
 
 /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
 @media (max-width: 800px) {
+    /* 1. THE TRIGGER (Invisible but covers the icon area) */
     .hamburger {
         display: flex !important;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30px;
-        height: 25px;
+        position: fixed !important;
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
         cursor: pointer;
+        z-index: 1000001 !important; /* Above everything */
+        background: transparent;
+        margin: 0;
         padding: 0;
-        margin: 15px;
-        /* Increased z-index to stay above the video overlay */
-        z-index: 1000000 !important; 
     }
 
+    /* 2. THE VISUAL ICON (The 3 lines) */
     .hamburger span {
-        width: 100%;
+        display: block;
+        width: 30px;
         height: 3px;
-        /* Changed to white so it's visible over the dark video header */
         background-color: white; 
         border-radius: 10px;
-        transition: all 0.3s ease-in-out; 
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        right: 7px;
     }
 
-    /* --- HAMBURGER ANIMATION (Direct Sibling Selectors) --- */
-    /* This finds the spans inside the label that follows the checked box */
+    /* Position the 3 lines vertically */
+    .hamburger span:nth-child(1) { top: 12px; }
+    .hamburger span:nth-child(2) { top: 21px; }
+    .hamburger span:nth-child(3) { top: 30px; }
+
+    /* --- HAMBURGER ANIMATION --- */
     #menu-toggle:checked + .hamburger span:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
-
     #menu-toggle:checked + .hamburger span:nth-child(2) {
         opacity: 0;
     }
-
     #menu-toggle:checked + .hamburger span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
 
-    /* --- THE CRITICAL FIX: MENU SLIDE-IN --- */
-    /* This covers two scenarios: if the menu is a direct sibling OR if it's 
-    inside a container that is a sibling of the checkbox */
-    #menu-toggle:checked ~ .navigationbar,
-    #menu-toggle:checked ~ div .navigationbar,
-    #menu-toggle:checked ~ nav .navigationbar {
-        transform: translateX(0) !important;
-        visibility: visible !important;
-        display: flex !important;
-}
+    #menu-toggle { display: none !important; }
 
-    /* --- MENU SLIDE-IN ANIMATION --- */
-    /* --- SIMPLIFIED MENU --- */
+    /* --- THE NAVIGATION MENU --- */
     .navigationbar {
         display: flex !important;
         flex-direction: column !important;
@@ -1866,24 +1863,24 @@ Contact Us Page
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 100dvh !important;
+        height: 100dvh !important; /* Safari-friendly height */
         background-color: white !important;
-        /* Super high z-index to stay above the video */
-        z-index: 99999 !important; 
+        z-index: 1000000 !important; /* Just below the trigger */
         padding: 80px 0 env(safe-area-inset-bottom) 0 !important;
         margin: 0 !important;
         
-        /* REMOVED: opacity and visibility */
-        /* Only using transform to hide it off-screen to the left */
+        /* Hide off-screen */
         transform: translateX(-100%); 
-        transition: transform 0.4s ease-in-out;
+        transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
         
         overflow-y: auto !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
     }
 
-    /* --- THE TOGGLE (The only thing that needs to change) --- */
-    #menu-toggle:checked ~ .navigationbar {
+    /* --- THE TOGGLE (Aggressive Selectors) --- */
+    #menu-toggle:checked ~ .navigationbar,
+    #menu-toggle:checked ~ div .navigationbar,
+    #menu-toggle:checked ~ nav .navigationbar {
         transform: translateX(0) !important;
     }
 
@@ -1917,7 +1914,7 @@ Contact Us Page
 
     body { padding-top: 80px !important; }
 
-    /* --- PAGE CONTENT ADJUSTMENTS --- */
+    /* --- CONTENT & IMAGE FIXES --- */
     .nle-about-card {
         padding: 30px 20px !important;
         border-left-width: 6px !important;
@@ -1934,65 +1931,31 @@ Contact Us Page
         min-height: 300px !important;
     }
 
-    .overlay-content h1 {
-        letter-spacing: 2px !important;
-    }
+    .overlay-content h1 { letter-spacing: 2px !important; }
+    .home-intro { margin-top: 20px !important; }
+    .intro-content { padding: 30px 20px !important; text-align: center; }
+    .link-buttons { justify-content: center; }
 
-    .home-intro {
-        margin-top: 20px !important; /* Resets the overlap for mobile */
-    }
-
-    .intro-content {
-        padding: 30px 20px !important;
-        text-align: center;
-    }
-
-    .link-buttons {
-        justify-content: center;
-    }
-    .vocator-card {
-        flex-direction: column-reverse !important; /* Puts text above image or vice versa */
-        text-align: center;
-    }
-
-    .vocator-text h3 {
-        font-size: 24px !important;
-    }
-
-    .vocator-text p {
-        font-size: 16px !important;
-    }
-    .vocator-card, 
-    .convention-container, 
-    .event-card {
+    .vocator-card, .convention-container, .event-card {
         flex-direction: column !important; 
         align-items: center;
         text-align: center;
     }
 
-    /* Fix for Vocator Previews */
-    .vocator-preview, 
-    .convention-image, 
-    .event-image {
+    .vocator-preview, .convention-image, .event-image {
         width: 100% !important;
-        max-width: 350px; /* Limits the size so it doesn't get massive */
+        max-width: 350px;
         margin: 20px auto;
     }
 
-    /* Prevent the actual image from distorting */
-    .vocator-preview img, 
-    .convention-image img, 
-    .event-image img {
+    .vocator-preview img, .convention-image img, .event-image img {
         width: 100% !important;
-        height: 250px !important; /* Set a consistent height */
-        object-fit: cover; /* This crops the edges instead of squishing the face */
+        height: 250px !important;
+        object-fit: cover;
         border-radius: 10px;
     }
 
-    /* Adjust text padding when stacked */
-    .vocator-text, 
-    .convention-text, 
-    .event-text {
+    .vocator-text, .convention-text, .event-text {
         width: 100% !important;
         padding: 15px !important;
     }
