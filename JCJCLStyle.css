@@ -1950,15 +1950,87 @@ Contact Us Page
     /* Keep hiding the Fall Forum secondary image */
     .floating-img { display: none !important; }
 
-    /* 4. KEEP THE MENU & HAMBURGER (As they were working) */
-    .hamburger-trigger { display: block !important; position: fixed !important; top: 15px; right: 15px; width: 45px; height: 45px; z-index: 2000000; background-color: rgba(0,0,0,0.3); border-radius: 8px; }
-    .visual-hamburger { display: flex !important; flex-direction: column; justify-content: space-around; position: fixed !important; top: 22px; right: 22px; width: 31px; height: 28px; z-index: 2000001; pointer-events: none; }
-    .visual-hamburger span { display: block !important; width: 100%; height: 4px; background-color: white; border-radius: 10px; }
+    /* --- PERFECTLY ALIGNED FLAT MENU --- */
+
+    /* 1. Reset all containers to kill hidden indents */
+    .navigationbar, 
+    .navigationbar ul, 
+    .navigationbar li, 
+    .dropdown-menu {
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+        width: 100% !important;
+        display: block !important;
+        background: white !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. Hide the "Parent" labels (Testing, Chapter News, etc.) */
+    .navigationbar > li.dropdown > a {
+        display: none !important;
+    }
+
+    /* 3. Standardize every single link for a uniform look */
+    .navigationbar a, 
+    .navigationbar .dropdown-menu li a {
+        display: flex !important;
+        align-items: center !important; 
+        height: 60px !important; /* Identical row height */
+        padding: 0 25px !important; /* Equal side spacing */
+        font-size: 18px !important;
+        color: #333 !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. The Hamburger UI (Merged & Cleaned) */
+    .hamburger-trigger { 
+        display: block !important; 
+        position: fixed !important; 
+        top: 15px; right: 15px; 
+        width: 45px; height: 45px; 
+        z-index: 2000000; 
+        background-color: rgba(0,0,0,0.3); 
+        border-radius: 8px; 
+    }
+
+    .visual-hamburger { 
+        display: flex !important; 
+        flex-direction: column; 
+        justify-content: space-around; 
+        position: fixed !important; 
+        top: 22px; right: 22px; 
+        width: 31px; height: 28px; 
+        z-index: 2000001; 
+        pointer-events: none; 
+    }
+
+    .visual-hamburger span { 
+        display: block !important; 
+        width: 100%; height: 4px; 
+        background-color: white; 
+        border-radius: 10px; 
+    }
+
+    /* 5. Logic & Animation */
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
-    .navigationbar { display: flex !important; flex-direction: column !important; position: fixed !important; top: 0; left: 0; width: 100%; height: 100dvh; background-color: white; z-index: 1999999; transform: translateX(-100%); transition: transform 0.3s; padding-top: 80px; }
-    #menu-toggle:checked ~ .navigationbar { transform: translateX(0) !important; }
-    .navigationbar > li.dropdown > a { display: none !important; }
-    .navigationbar .dropdown-menu { display: block !important; position: static !important; box-shadow: none !important; }
+
+    .navigationbar { 
+        position: fixed !important; 
+        top: 0; left: 0; 
+        width: 100%; height: 100dvh; 
+        z-index: 1999999; 
+        transform: translateX(-100%); 
+        transition: transform 0.3s; 
+        padding-top: 80px !important; 
+    }
+
+    #menu-toggle:checked ~ .navigationbar { 
+        transform: translateX(0) !important; 
+    }
 }
