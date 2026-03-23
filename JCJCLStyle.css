@@ -1950,58 +1950,95 @@ Contact Us Page
     /* Keep hiding the Fall Forum secondary image */
     .floating-img { display: none !important; }
 
-
-
-    /* --- BUTTON & MENU FIX --- */
     
-    /* 1. Force all sub-menus to stay open and flat */
+
+    /* --- SIMPLE UNIFORM VERTICAL MENU --- */
+
+    /* 1. FORCE EVERYTHING INTO A SINGLE COLUMN */
+    .navigationbar, 
     .navigationbar ul, 
-    .navigationbar .dropdown-menu {
+    .navigationbar li, 
+    .dropdown-menu {
         display: block !important;
-        position: static !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+        width: 100% !important;
+        background: white !important;
+        position: static !important; /* Kills the "floating" dropdown boxes */
         visibility: visible !important;
         opacity: 1 !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: white !important;
     }
 
-    /* 2. Remove any "Arrow" icons or indicators */
-    /* This targets common CSS arrow techniques (::after or ::before) */
-    .navigationbar a::after, 
-    .navigationbar a::before,
-    .dropdown-toggle::after {
-        display: none !important;
-        content: none !important;
-    }
-
-    /* 3. SURGERY: Hide the "Labels" (Testing, Chapter News) */
-    /* We only want the actual links (NLE, Academic, etc.) */
+    /* 2. HIDE THE NON-LINK TITLES (Testing, Chapter News) */
+    /* This removes the items that just have arrows and aren't real pages */
     .navigationbar > li.dropdown > a {
         display: none !important;
     }
 
-    /* 4. UNIFIED LINK STYLE (Standardizes everything) */
+    /* 3. UNIFORM STYLE FOR ALL TABS (Events, NLE, Certamen, etc.) */
     .navigationbar a, 
     .navigationbar li a, 
     .navigationbar .dropdown-menu li a {
         display: flex !important;
-        align-items: center !important;
-        height: 60px !important;
-        padding: 0 25px !important;
-        font-size: 18px !important;
+        align-items: center !important; /* Centers text vertically */
+        height: 60px !important; /* Equal height for every row */
+        padding: 0 25px !important; /* Equal padding from the left */
+        font-size: 18px !important; /* Uniform font size */
         color: #333 !important;
         text-decoration: none !important;
-        border-bottom: 1px solid #eee !important;
-        background: white !important;
+        border-bottom: 1px solid #eee !important; /* Clean separator line */
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* 5. FIX OVERFLOW (So you can reach the bottom links) */
-    .navigationbar {
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iPhone */
+    /* 4. THE HAMBURGER BUTTON (Fixed & Visible) */
+    .hamburger-trigger {
+        display: block !important;
+        position: fixed !important;
+        top: 15px; right: 15px;
+        width: 45px; height: 45px;
+        z-index: 1000000;
+        background-color: rgba(0,0,0,0.5); /* Semi-transparent dark box */
+        border-radius: 8px;
     }
+
+    .visual-hamburger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-around;
+        position: fixed !important;
+        top: 22px; right: 22px;
+        width: 31px; height: 28px;
+        z-index: 1000001;
+        pointer-events: none;
+    }
+
+    .visual-hamburger span {
+        display: block !important;
+        width: 100%; height: 4px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    /* 5. MENU OVERLAY LOGIC */
+    .navigationbar {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100%; height: 100dvh;
+        z-index: 999999;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        padding-top: 80px !important; /* Space for the button at the top */
+        overflow-y: auto !important; /* Let the user scroll the list */
+    }
+
+    #menu-toggle:checked ~ .navigationbar {
+        transform: translateX(0) !important;
+    }
+
+    /* Animation for the Hamburger X */
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 }
