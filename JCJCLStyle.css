@@ -1950,13 +1950,47 @@ Contact Us Page
     /* Keep hiding the Fall Forum secondary image */
     .floating-img { display: none !important; }
 
-    /* --- PERFECTLY ALIGNED FLAT MENU --- */
+    
 
-    /* --- COMPLETE FLAT MENU FIX --- */
+    /* --- BUTTON & MENU FIX --- */
 
-    /* --- UNIVERSAL MENU VISIBILITY --- */
+    /* 1. THE TRIGGER (The clickable area) */
+    .hamburger-trigger {
+        display: block !important;
+        position: fixed !important;
+        top: 15px !important;
+        right: 15px !important;
+        width: 50px !important; /* Slightly larger for easier tapping */
+        height: 50px !important;
+        cursor: pointer !important;
+        z-index: 9999999 !important; /* Forces it to the very front */
+        background-color: #800000 !important; /* JCL Maroon so it's visible */
+        border-radius: 8px !important;
+    }
 
-    /* 1. Force the container to show everything */
+    /* 2. THE ICON (The white lines) */
+    .visual-hamburger {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        position: fixed !important;
+        top: 23px !important;
+        right: 23px !important;
+        width: 34px !important;
+        height: 30px !important;
+        z-index: 10000000 !important; /* One level higher than the trigger */
+        pointer-events: none !important;
+    }
+
+    .visual-hamburger span {
+        display: block !important;
+        width: 100% !important;
+        height: 4px !important;
+        background-color: white !important;
+        border-radius: 10px !important;
+    }
+
+    /* 3. THE MENU (The background) */
     .navigationbar {
         display: flex !important;
         flex-direction: column !important;
@@ -1964,49 +1998,22 @@ Contact Us Page
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 100dvh !important;
+        height: 100vh !important;
         background-color: white !important;
-        z-index: 1999999 !important; 
-        transform: translateX(-100%); 
+        z-index: 9999998 !important; /* Sits JUST behind the button */
+        transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
-        padding-top: 80px !important;
-        overflow-y: auto !important; /* Vital so you can scroll to 'Contact Us' */
+        padding-top: 100px !important;
+        overflow-y: auto !important;
     }
 
-    /* 2. Style EVERY link (Events, Certamen, NLE, etc.) identically */
-    .navigationbar a, 
-    .navigationbar li a, 
-    .navigationbar .dropdown-menu li a {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        height: 60px !important;
-        padding: 0 25px !important;
-        font-size: 18px !important;
-        color: black !important;
-        border-bottom: 1px solid #eee !important;
-        align-items: center !important;
-        text-decoration: none !important;
+    /* 4. OPEN STATE */
+    #menu-toggle:checked ~ .navigationbar {
+        transform: translateX(0) !important;
     }
 
-    /* 3. SURGICAL REMOVAL OF THE "LABELS" ONLY */
-    /* This hides 'Testing' and 'Chapter News' while leaving NLE, Events, etc. alone */
-    .navigationbar > li.dropdown > a {
-        display: none !important;
-    }
-
-    /* 4. RESET NESTING (Fixes alignment for NLE/Academic links) */
-    .navigationbar ul, 
-    .navigationbar li, 
-    .dropdown-menu {
-        margin: 0 !important;
-        padding: 0 !important;
-        list-style: none !important;
-    }
-
-    /* 5. HAMBURGER (Ensure it is on top) */
-    .hamburger-trigger {
-        display: block !important;
-        z-index: 2000000 !important;
-    }
+    /* X-Animation when open */
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
+    #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 }
