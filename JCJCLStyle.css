@@ -1965,4 +1965,82 @@ Contact Us Page
         width: 100% !important;
         padding: 15px !important;
     }
+
+    /* --- EVENTS PAGE IMAGE FIX --- */
+    .event-card, 
+    .event-container, 
+    .convention-container {
+        display: flex !important;
+        flex-direction: column !important; /* Stacks image above text */
+        align-items: center !important;
+        width: 100% !important;
+        padding: 10px 0 !important;
+    }
+
+    .event-image, 
+    .event-preview,
+    .convention-image {
+        width: 100% !important;
+        max-width: 350px !important; /* Keeps it from getting too huge on tablets */
+        margin: 0 auto 20px auto !important;
+    }
+
+    .event-image img, 
+    .event-preview img, 
+    .convention-image img {
+        width: 100% !important;
+        height: 220px !important; /* Forces a consistent, clean height */
+        object-fit: cover !important; /* THE SECRET: Crops instead of squishing */
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        display: block !important;
+    }
+
+    .event-text, 
+    .convention-text {
+        width: 90% !important; /* Gives the text some breathing room on the sides */
+        text-align: center !important;
+        padding: 0 15px !important;
+    }
+
+    /* --- STANDARDIZE ALL MENU ITEMS --- */
+
+    /* 1. Reset all backgrounds to plain white */
+    .navigationbar li, 
+    .navigationbar .dropdown-menu, 
+    .navigationbar .dropdown-menu li {
+        background: white !important;
+        background-image: none !important; /* Kills any gradients */
+        border-bottom: 1px solid #f0f0f0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* 2. Standardize the Links (Text) */
+    .navigationbar a, 
+    .navigationbar li a, 
+    .navigationbar .dropdown-menu li a {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+        font-size: 18px !important;
+        color: #333 !important;
+        padding: 20px 25px !important;
+        display: block !important;
+        text-align: left !important;
+        text-decoration: none !important;
+        background: transparent !important; /* Prevents individual link gradients */
+        transition: background 0.2s ease;
+    }
+
+    /* 3. A Single, Unified Hover State */
+    .navigationbar a:hover, 
+    .navigationbar li a:hover, 
+    .navigationbar .dropdown-menu li a:hover {
+        background-color: #f9f9f9 !important; /* Very subtle light gray on tap */
+        color: #800000 !important; /* JCL Maroon text on hover */
+    }
+
+    /* 4. Remove any "Arrow" icons or extra padding from dropdown parents */
+    .navigationbar li.dropdown::after {
+        display: none !important;
+    }
 }
