@@ -154,6 +154,7 @@ nav {
 .dropdown {
     position: relative;
     color: cyan;
+    display: inline-block;
 }
 
 /* Hide dropdown menu by default */
@@ -170,6 +171,8 @@ nav {
     min-width: 220px;
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    z-index: 10001;
 }
 
 /* Dropdown items */
@@ -380,11 +383,14 @@ nav {
     letter-spacing: 1px;
     color: #999;
     margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
 }
 
 .link-buttons {
     display: flex;
     gap: 15px;
+    justify-content: center;
 }
 
 .affil-btn {
@@ -428,6 +434,26 @@ nav {
     height: 100%;
     object-fit: cover;
 }
+
+/* Make it clear that image is clickable */
+.vocator-preview a {
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.vocator-preview a:hover {
+    transform: scale(1.02); /* Slight zoom in */
+    opacity: 0.9;           /* Slight fade */
+}
+
+.vocator-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Matches your other box styles */
+}
+
+
 
 .download-btn {
     display: inline-block;
@@ -534,7 +560,7 @@ nav {
 
 /* Description Text */
 .vocator-text p {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 17px;
     line-height: 1.7;
     color: #444;
@@ -744,18 +770,38 @@ Certamen Page
     flex: 1;
     min-width: 300px;
     max-width: 420px;
-    height: 300px;
+    /* height: 300px;  <-- REMOVE OR COMMENT THIS OUT */
     background-color: #f9f9f9;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     border: 1px solid #eee;
+    display: flex;
+    flex-direction: column; /* Stacks image on top of caption */
 }
 
 .image-box img {
     width: 100%;
-    height: 100%;
+    height: 250px; /* Give the image a fixed height so the caption has room */
     object-fit: cover;
+    display: block;
+}
+
+/* Keep your .image-caption exactly as it is! */
+
+
+/* THE CAPTION STYLE */
+.image-caption {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 14px !important;
+    color: #555 !important;
+    font-style: italic !important;
+    text-align: center !important;
+    padding: 12px 15px !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    background: #fdfdfd !important; /* Very slight contrast from the white box */
+    border-top: 1px solid #eee;
 }
 
 /* Info Block Styling */
@@ -1304,6 +1350,13 @@ Contact Us Page
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     /* Ensure this doesn't inherit the small font if you want the menu larger */
+}
+
+/* Show dropdown on hover */
+.navigationbar li.dropdown:hover .dropdown-menu {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -2041,4 +2094,32 @@ Contact Us Page
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
     #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+    /* Hide the "Meetings" parent label just like we did for Testing/Chapter News */
+    .navigationbar > li.dropdown > a {
+        display: none !important;
+    }
+
+    /* Force the sub-links (Current and 24-25) to be visible in the main list */
+    .navigationbar .dropdown-menu {
+        display: block !important;
+        position: static !important; /* Makes them part of the vertical flow */
+        box-shadow: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Ensure the new archive link looks exactly like the others */
+    .navigationbar .dropdown-menu li a {
+        height: 60px !important;
+        display: flex !important;
+        align-items: center !important;
+        border-bottom: 1px solid #eee !important;
+        padding-left: 25px !important;
+        font-size: 18px !important;
+    }
+
+    .link-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
