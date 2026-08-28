@@ -10,6 +10,2212 @@ Originally Made by Rayaan Mithani
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johns Creek Junior Classical League</title>
     <link rel="stylesheet" href="JCJCLStyle.css">
+
+    <style>
+
+        /* 
+        Styling for JCL Website for Johns Creek High School
+        Made by Rayaan Mithani
+        */
+
+
+        /* Prevent padding from increasing width over 100% */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Reset default browser margin/padding */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+
+        /* Styling for overall website body*/
+        body {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);;
+        }
+
+        /* Styling for body */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 25px;
+            padding-top: 160px;
+        }
+
+        /* Styling for header */
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+
+        /* Global fix for images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        /* Styling for navigation bar */
+
+            /* 
+            - Place navigation bar at top left of page
+            - Make navigation bar fixed so it stays in place when scrolling
+            - Make navigation options gray out when hovered over
+            - Remove bullet points from navigation options
+            - Make navigation options appear horizontally
+            */
+
+        /* Navigation bar container */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px 0;
+            z-index: 10000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navtop {
+            display: flex;
+            flex-wrap: nowrap; /* Forces them to stay side-by-side */
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 2%; /* Use percentage for outer spacing */
+            width: 100%;
+            background-color: white; /* Ensures the bar isn't see-through on mobile */
+            position: relative;
+        }
+
+        .logo img {
+            /* Use a relative height so the logo shrinks on smaller resolutions */
+            height: clamp(50px, 5vw, 80px); 
+            width: auto;
+        }
+
+
+        /* Navigation list */
+        .navigationbar {
+            display: flex;
+            flex-wrap: nowrap; /* Keeps everything on one line */
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%; /* Ensure it takes up the full width available */
+        }
+
+        .navigationbar a, 
+        .dropdown > a {
+            text-decoration: none;
+            font-size: clamp(14px, 1.1vw, 18px);
+            padding: 10px 0;
+            width: 100%;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+            color: black;
+            display: inline-block;
+        }
+
+        /* Hover effect */
+        .navigationbar a:hover {
+            color: gray;
+        }
+
+
+        /* Navigation link colors (force black/hover gray always) */
+        .navigationbar a,
+        .navigationbar a:visited,
+        .navigationbar a:active {
+            color: black;
+        }
+
+        .navigationbar a:hover {
+            color: gray;
+        }
+
+        .dropdown-menu a,
+        .dropdown-menu a:visited,
+        .dropdown-menu a:active {
+            color: black;
+        }
+        .dropdown-menu a:hover {
+            color: gray;
+        }
+
+
+        /* Same thing for contact us */
+
+        .contactus a,
+        .contactus a:visited,
+        .contactus a:active {
+            color: black;
+        }
+        .contactus a:hover {
+            color: gray;
+        }
+
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            color: cyan;
+            display: inline-block;
+        }
+
+        /* Hide dropdown menu by default */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            background-color: white;
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            min-width: 220px;
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+            z-index: 10001;
+        }
+
+        /* Dropdown items */
+        .dropdown-menu li {
+            padding: 8px 20px;
+        }
+
+        /* Dropdown links */
+        .dropdown-menu a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            display: block;
+        }
+
+        /* Hover effects */
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+
+
+        /* Contact link */
+        .contactus a {
+            text-decoration: none;
+            font-size: 20px;
+            padding-right: 10px;
+            text-decoration-color: rgb(39, 216, 16);
+        }
+
+        .contactus a:hover {
+            color: gray;
+        }
+
+
+
+        /* --- HERO REPAIR (Fully Responsive) --- */
+        /* --- HERO REPAIR (Full Video Visibility) --- */
+        .video-header {
+            width: 100%;
+            /* Remove fixed height: the aspect-ratio will now dictate the height */
+            height: auto; 
+            margin: 0;
+            padding: 0;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            background-color: black;
+            /* This ensures the header stays 16:9 (standard video shape) */
+            aspect-ratio: 16 / 9; 
+        }
+
+        .video-header video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            /* 'contain' ensures the whole video is seen, 'cover' fills the space */
+            /* If you want NO cropping at all, use 'fill' or 'contain' */
+            object-fit: fill; 
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Ensure the overlay still covers the fluid height */
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Dark overlay: Keep your original logic but ensure it covers the height */
+        .video-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom, 
+                rgba(0, 0, 0, 0.6) 0%, 
+                rgba(0, 0, 0, 0) 40%, 
+                rgba(0, 0, 0, 0) 60%, 
+                rgba(0, 0, 0, 0.6) 100%
+            );
+            z-index: 1;
+        }
+
+        .overlay-content h1 {
+            /* Use clamp so the font size scales smoothly between 1rem and 1.2rem */
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 10px;
+            text-shadow: 0px 4px 15px rgba(0,0,0,0.6); 
+            color: white;
+        }
+
+        .overlay-content h2 {
+            /* Huge jump for desktop, shrinks for mobile */
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            margin: 0;
+            text-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+            color: white;
+        }
+
+        .header-line {
+            width: 80px;
+            height: 4px;
+            background: skyblue;
+            margin: 25px auto;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+            color: white;
+        }
+
+        /* --- HOME CONTENT LAYOUT --- */
+        .home-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .home-intro {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .home-intro h2 {
+            font-size: 36px;
+            border-bottom: 4px solid skyblue;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+
+        /* Chapter Description */
+        /* --- HOME INTRO CARD --- */
+        .home-intro {
+            max-width: 900px;
+            margin: -40px auto 60px; /* Pulls it slightly over the video for a layered look */
+            padding: 0 20px;
+            position: relative;
+            z-index: 10; /* Ensures it sits above the video bottom */
+        }
+
+        .intro-card {
+            background: #ffffff;
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .intro-accent {
+            width: 10px;
+            background-color: #800000; /* JCL Maroon */
+            flex-shrink: 0;
+        }
+
+        .intro-content {
+            padding: 50px;
+        }
+
+        .latin-greeting {
+            display: block;
+            font-family: Georgia, serif;
+            font-style: italic;
+            color: #800000;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .intro-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #222;
+            font-family: Georgia, serif;
+        }
+
+        .intro-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Affiliation Section */
+        .affiliation-links span {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .affil-btn {
+            text-decoration: none;
+            color: #800000;
+            border: 1px solid #800000;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .affil-btn:hover {
+            background-color: #800000;
+            color: #fff !important;
+        }
+
+        /* --- VOCATOR HIGHLIGHT --- */
+        .vocator-card {
+            display: flex;
+            background: #fdfdfd;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            margin-bottom: 100px;
+            border: 1px solid #eee;
+        }
+
+        .vocator-text {
+            flex: 1;
+            padding: 60px;
+        }
+
+        .vocator-preview {
+            flex: 1;
+            background: #f0f0f0;
+        }
+
+        .vocator-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Make it clear that image is clickable */
+        .vocator-preview a {
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .vocator-preview a:hover {
+            transform: scale(1.02); /* Slight zoom in */
+            opacity: 0.9;           /* Slight fade */
+        }
+
+        .vocator-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px; /* Matches your other box styles */
+        }
+
+
+
+        .download-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: skyblue;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #5dbbe2;
+            transform: translateY(-2px);
+        }
+
+        /* --- MINI EVENT CARDS --- */
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        /* --- MINI EVENT CARDS (Uniform Highlight) --- */
+        .upcoming-events {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            border-bottom: 4px solid skyblue;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .event-mini-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            /* Apply the "highlight" look to all cards by default */
+            border-top: 6px solid skyblue; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop effect */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Effect: All cards now "pop" when you touch them */
+        .event-mini-card:hover {
+            transform: translateY(-10px); /* Lifts the card up */
+            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.3); /* Adds a sky-blue glow */
+            background-color: #fdfdfd;
+        }
+
+        .event-date {
+            display: block;
+            color: skyblue;
+            font-weight: 900;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .event-mini-card h4 {
+            font-size: 22px;
+            margin: 10px 0;
+            color: #1a1a1a;
+        }
+
+        .event-mini-card p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+
+
+
+        /* --- VOCATOR TYPOGRAPHY & CONSISTENCY --- */
+
+        .vocator-highlight {
+            padding: 40px 20px;
+        }
+
+        /* Issue Titles (Vol 1, 2, 3) */
+        .vocator-text h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 28px;
+            color: #800000; /* JCL Maroon */
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Description Text */
+        .vocator-text p {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        /* Download/Read Now Button */
+        .download-btn {
+            display: inline-block;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #800000;
+            color: white !important;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid #800000;
+        }
+
+        .download-btn:hover {
+            background-color: transparent;
+            color: #800000 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Image Preview Styling (Optional but recommended) */
+        .vocator-preview img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .vocator-card:hover .vocator-preview img {
+            transform: scale(1.02);
+        }
+
+
+
+
+        /* Container for the page title */
+        .page-header {
+            text-align: center;
+            padding: 60px 20px 20px 20px; /* Space below the fixed nav */
+            margin-bottom: 20px;
+            font-family: 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback';
+        }
+
+        .page-header h1 {
+            font-family: 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback';
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a1a1a; /* Professional dark gray */
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Gives it a "Classical" Roman feel */
+            margin: 0;
+        }
+
+        /* The subtle Sky Blue accent to match your role text */
+        .header-underline {
+            width: 80px;
+            height: 4px;
+            background-color: skyblue; /* Matches your card roles */
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Optional: Add a subtle subtitle or "Latin" flavor */
+        .page-header::after {
+            content: "Johns Creek Junior Classical League";
+            display: block;
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 6px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+
+
+        /* 
+
+        Officer Board Page
+
+        */
+
+
+
+        .officercontainers {
+            display: grid;
+            /* Forces exactly 3 columns regardless of screen width */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 60px; /* Increased spacing between boxes */
+            justify-content: center;
+            /* This ensures all cards in a row match the height of the tallest card */
+            align-items: stretch; 
+            padding: 50px 5%;
+            margin-top: 20px;
+            max-width: 1500px; /* Prevents the 3 boxes from becoming TOO wide on huge monitors */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Updated Officer Card */
+        .officer-card {
+            /* Remove the fixed 'width: 415px' so it can grow/shrink to fit the 3-column grid */
+            background-color: white;
+            border-radius: 25px; 
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07); 
+            padding: 40px 25px; 
+            text-align: center;
+            border: 1px solid #f2f2f2;
+            display: flex;           /* Added to help with internal vertical alignment */
+            flex-direction: column;  /* Keeps content stacked vertically */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .officer-card:hover {
+            transform: scale(1.03) translateY(-10px);
+            border-color: rgb(39, 216, 16);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Ensure the text area expands so the boxes stay uniform */
+        .officer-details {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Avatar Styling */
+        .officer-image img {
+            width: 300px;      
+            height: 300px;     
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 8px solid #fcfcfc;
+            margin: 0 auto 25px auto; /* Centers the image and adds bottom margin */
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        /* Text Scaling */
+        .officer-details h3 {
+            color: rgb(16, 216, 216);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 10px;
+        }
+
+        .officer-details h4 {
+            color: #111;
+            font-size: 28px; 
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .officer-details p {
+            color: #555;
+            font-size: 17px; 
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Mobile Responsiveness: Switch to 1 column for phones */
+        @media (max-width: 1100px) {
+            .officercontainers {
+                grid-template-columns: 1fr;
+                max-width: 500px; /* Keeps the card from becoming a wide rectangle on mobile */
+            }
+        }
+
+
+
+
+
+        /*
+
+        Certamen Page
+
+        */
+
+
+        /* Container for Certamen Content */
+        .certamen-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Image Layout */
+        .certamen-images {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 420px;
+            /* height: 300px;  <-- REMOVE OR COMMENT THIS OUT */
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column; /* Stacks image on top of caption */
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 250px; /* Give the image a fixed height so the caption has room */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Keep your .image-caption exactly as it is! */
+
+
+        /* THE CAPTION STYLE */
+        .image-caption {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+            font-size: 14px !important;
+            color: #555 !important;
+            font-style: italic !important;
+            text-align: center !important;
+            padding: 12px 15px !important;
+            margin: 0 !important;
+            line-height: 1.4 !important;
+            background: #fdfdfd !important; /* Very slight contrast from the white box */
+            border-top: 1px solid #eee;
+        }
+
+        /* Info Block Styling */
+        .certamen-info-block {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            /* Subtle sky blue left border to match the theme */
+            border-left: 6px solid skyblue; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .certamen-subheading {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: skyblue; /* Matches your Sky Blue theme */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .certamen-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin: 0;
+        }
+
+
+
+        /*
+
+        Local Meetings Page
+
+        */
+
+        /* Meetings Timeline Container */
+        .meetings-timeline {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px; /* Large gap between different meetings */
+        }
+
+        /* Individual Meeting Entry */
+        .meeting-entry {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* Alternate direction: flips every second entry */
+        .meeting-entry:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Image Container */
+        .meeting-image {
+            flex: 1.2;
+            height: 400px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+
+        .meeting-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures photos don't stretch */
+            transition: transform 0.5s ease;
+        }
+
+        .meeting-entry:hover .meeting-image img {
+            transform: scale(1.05); /* Subtle zoom effect */
+        }
+
+        /* Text Container */
+        .meeting-details {
+            flex: 1;
+        }
+
+        .date-badge {
+            background-color: skyblue;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .meeting-details h3 {
+            font-size: 32px;
+            margin: 0 0 15px 0;
+            color: #1a1a1a;
+        }
+
+        .meeting-details p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .meeting-entry, .meeting-entry:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .meeting-image {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+
+
+        /*
+
+        Events Page
+
+        */
+
+        /* Core Showcase Setup */
+        .events-showcase {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .event-section {
+            min-height: 100vh; /* Each event takes up almost the whole screen */
+            display: flex;
+            padding: 80px 5%;
+            position: relative;
+        }
+
+        /* --- STYLE 1: FALL FORUM (Split) --- */
+        .hero-split {
+            background: #ffffff;
+            align-items: center;
+        }
+        .hero-image-side {
+            flex: 1.2;
+            position: relative;
+            height: 600px;
+        }
+        .hero-image-side img:first-child {
+            width: 80%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .floating-img {
+            position: absolute;
+            bottom: -40px;
+            right: 40px;
+            width: 50%;
+            height: 60%;
+            border: 10px solid white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        .hero-text-side {
+            flex: 0.8;
+            padding-left: 60px;
+        }
+        .event-label { color: skyblue; letter-spacing: 5px; font-weight: bold; }
+
+
+
+
+
+        /* --- STYLE 2: SATURNALIA (New Modern Collage) --- */
+        .hero-gallery {
+            background-color: #ffffff; /* Clean white background */
+            padding: 100px 5%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* Main image on left, content on right */
+            gap: 40px;
+            max-width: 1200px;
+            align-items: center;
+            z-index: 1;
+        }
+
+        /* The Large Main Photo */
+        .gallery-item.main {
+            width: 100%;
+            height: 650px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item.main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* The Content Column (Sub Image + Text) */
+        .gallery-item.sub {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .gallery-item.sub img {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .gallery-info {
+            padding: 10px;
+        }
+
+        .gallery-info h2 {
+            color: #1a1a1a;
+            font-size: 42px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid skyblue;
+            display: inline-block;
+        }
+
+        .gallery-info p {
+            color: #444;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* --- STYLE 3: MS VISIT (The Framed Spotlight) --- */
+        .hero-magazine.spotlight {
+            background-color: #f8fbff; /* Very subtle blue tint */
+            padding: 120px 5%;
+            overflow: hidden; /* Fixes the "off the frame" issue */
+        }
+
+        .hero-magazine.spotlight .magazine-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .magazine-text h2 {
+            font-size: 50px;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        .magazine-location {
+            font-size: 20px;
+            color: skyblue;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        /* Fix for the image going off-frame */
+        .spotlight-image-container {
+            position: relative;
+            padding: 20px; /* Provides breathing room */
+        }
+
+        .image-accent-block {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            border-radius: 40px;
+            top: 40px;
+            right: -20px; /* Reduced to keep it on screen */
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .main-spotlight-img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Makes the single photo a perfect impactful square */
+            border-radius: 25px;
+            overflow: hidden;
+            border: 12px solid white; /* Thick white frame to make it "pop" */
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .main-spotlight-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1000px) {
+            .gallery-container, .hero-magazine.spotlight .magazine-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .gallery-item.main { height: 400px; }
+            .image-accent-block { display: none; } /* Simplify for mobile */
+        }
+
+
+        /* --- STYLE 3: MS VISIT (Spotlight) FIXES --- */
+        .hero-magazine.spotlight {
+            display: flex;
+            align-items: center;
+            background: #fdfdfd; /* Pure background to make elements pop */
+        }
+
+        .hero-magazine.spotlight .magazine-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            gap: 80px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .spotlight-image-container {
+            position: relative;
+            width: 100%;
+            /* Removed fixed height to prevent "off the frame" issues */
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .image-accent-block {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            border-radius: 30px;
+            top: 40px; /* Offset for pop effect */
+            right: -30px;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .main-spotlight-img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            /* Use aspect-ratio to keep it perfectly contained */
+            aspect-ratio: 4 / 3; 
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); /* Stronger shadow to "pop" */
+            border: 5px solid white; /* Border makes it look like a physical photo */
+        }
+
+        .main-spotlight-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /*
+        ALL EVENTS
+        */
+
+        /* Blue underline under event title */
+        .hero-text-side h2,
+        .gallery-info h2, 
+        .magazine-text h2 {
+            display: inline-block; /* Ensures the underline only goes as far as the text */
+            border-bottom: 4px solid skyblue;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+
+        /* Event Date/Location Format */
+
+        .event-date-alt {
+            display: block;
+            margin-top: 20px;
+            font-weight: 800;
+            color: skyblue;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- UNIVERSAL EVENT TYPOGRAPHY --- */
+        /* Forces Fall Forum, Saturnalia, and MS Visit to use the same modern font */
+        .hero-text-side h2,
+        .hero-text-side p,
+        .gallery-info h2,
+        .gallery-info p,
+        .magazine-text h2,
+        .magazine-text p,
+        .event-label,
+        .event-date-alt,
+        .magazine-location {
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+
+        /* Ensure the paragraph text is easy to read across all designs */
+        .hero-text-side p,
+        .gallery-info p,
+        .magazine-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Ensure all event headers share the same sizing and weight */
+        .hero-text-side h2,
+        .gallery-info h2, 
+        .magazine-text h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+
+        /*
+
+        Contact Us Page
+
+        */
+        .contactInfoHeader {
+            font-size: 40px;
+            text-align: center;
+        }
+
+        /* Container to center all contact methods */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Styling for both Instagram and Email images */
+        .instagramContact img, 
+        .emailContact img {
+            width: 120px; /* Adjust size as needed */
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Center email icon (debug) */
+        .emailContact a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        /* Ensure the icon itself doesn't have weird margins */
+        .emailContact img {
+            margin: 0 auto !important;
+            display: block;
+        }
+
+        /* Ensure the parent item stays centered */
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+
+
+        /* Hover effect to make it interactive */
+        .instagramContact img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .contact-item h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #1a1a1a;
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+
+
+        /* Specific styling for the individual buttons */
+
+
+        /*
+
+        .normalNav a {
+            display: inline-block;
+            padding: 8px 15px;
+            font-size: 30px;
+            text-decoration: none;
+            color: #1a1a1a;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        */
+
+        .normalNav a:hover {
+            background-color: skyblue;
+            color: white;
+        }
+
+        /* Target both standalone links and the dropdown button */
+
+        /*
+
+        .normalNav a, 
+        .dropdown > a {
+            display: inline-block;
+            padding: 9px 18px;
+            font-size: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-decoration: none;
+            color: #1a1a1a;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+        */
+
+
+        /* Matching Hover States */
+        .normalNav a:hover, 
+        .dropdown:hover > a {
+            background-color: skyblue;
+            color: white;
+        }
+
+        /* Ensure the dropdown menu itself stays styled correctly */
+        .dropdown-menu {
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            /* Ensure this doesn't inherit the small font if you want the menu larger */
+        }
+
+        /* Show dropdown on hover */
+        .navigationbar li.dropdown:hover .dropdown-menu {
+            display: block !important;
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+
+        /* Shrink text/spacing if screen is smaller than 1100px (standard laptop) */
+
+        @media (max-width: 1100px) {
+            .navigationbar a {
+                font-size: 18px;
+                padding: 5px 8px;
+            }
+            .logo img {
+                height: 80px; /* Shrinks the logo slightly on smaller screens */
+            }
+        }
+
+        /* Ensure the list items grow to fill space evenly */
+        .navigationbar li {
+            flex: 1; /* Forces every tab to be the exact same width */
+            text-align: center;
+        }
+
+
+        /* National Latin Exam */
+
+        /* --- NEW NLE ABOUT DESIGN --- */
+        .nle-about-section {
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+        }
+
+        .nle-about-card {
+            max-width: 900px;
+            width: 100%;
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            /* Soft shadow for depth */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            /* Classical accent border */
+            border-left: 10px solid #800000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle background decoration (optional) */
+        .nle-about-card::before {
+            content: "NLE";
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 150px;
+            font-weight: 900;
+            color: rgba(128, 0, 0, 0.03); /* Extremely faint watermarked text */
+            z-index: 0;
+        }
+
+        .nle-about-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nle-badge {
+            color: #800000;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .nle-about-card h3 {
+            font-size: 32px;
+            margin: 0 0 25px 0;
+            color: #222;
+            font-family: Georgia, serif;
+        }
+
+        .nle-text-body p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Styled Button */
+        .nle-link-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 15px 30px;
+            background-color: #800000;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nle-link-btn:hover {
+            background-color: #a00000;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(128, 0, 0, 0.3);
+        }
+
+
+
+
+
+        /* Academic Contests */
+        /* --- ACADEMIC CONTESTS (NO IMAGES) --- */
+        .contests-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .contest-card {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .contest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header Sections */
+        .contest-header {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background: #fdfdfd;
+            border-bottom: 1px solid #eee;
+            gap: 20px;
+        }
+
+        .month-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* Color Themes */
+        #fall-forum .month-circle { background: #e67e22; } /* Autumn Orange */
+        #state-con .month-circle { background: #800000; }  /* School Maroon */
+        #national-con .month-circle { background: #2980b9; } /* National Blue */
+
+        .location-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #888;
+        }
+
+        .title-area h2 {
+            margin: 5px 0 0 0;
+            font-size: 28px;
+            color: #222;
+        }
+
+        /* Body Content */
+        .contest-body {
+            padding: 30px;
+        }
+
+        .contest-body p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .list-wrapper h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #800000;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .event-list li {
+            font-size: 17px;
+            color: #444;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .event-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #800000;
+        }
+
+        /* --- GJCL FAX FOOTER STYLING --- */
+        .fax-info-footer {
+            padding: 60px 20px;
+            background-color: #fcfcfc;
+            border-top: 1px solid #eee;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .fax-container p {
+            font-size: 20px;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .fax-link {
+            color: #800000;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(128, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .fax-link:hover {
+            border-bottom-color: #800000;
+            background-color: rgba(128, 0, 0, 0.05);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+
+
+        /* Resources */
+        .resources-wrapper {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .resource-card {
+            display: flex;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 40px;
+            gap: 30px;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .resource-icon-box {
+            font-size: 50px;
+            background: #f8f9fa;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .resource-info h2 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+            color: #222;
+        }
+
+        .resource-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Resource Buttons */
+        .resource-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #800000;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .resource-btn.secondary {
+            background-color: #444;
+        }
+
+        .resource-btn:hover {
+            filter: brightness(1.2);
+        }
+
+
+
+
+        /* Newsletters */
+        .newsletter-archive {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .issue-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            width: 340px; /* Fixed width for a consistent grid */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-5px);
+            border-color: #800000;
+        }
+
+        .issue-date {
+            background-color: #800000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .issue-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .issue-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .issue-info p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .issue-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #800000;
+            color: #800000 !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .issue-btn:hover {
+            background-color: #800000;
+            color: white !important;
+        }
+
+
+
+        /* Meeting Minutes */
+        .minutes-wrapper {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .minutes-card {
+            display: flex;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden; /* Keeps the accent bar clipped to the corners */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .minutes-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        }
+
+        /* The vertical color bar on the left */
+        .minutes-accent {
+            width: 12px;
+            background-color: #800000;
+            flex-shrink: 0;
+        }
+
+        .minutes-content {
+            padding: 35px;
+            flex-grow: 1;
+        }
+
+        .minutes-content h2 {
+            margin: 0 0 12px 0;
+            font-size: 26px;
+            color: #222;
+            font-family: Georgia, serif;
+        }
+
+        .minutes-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        /* Button Styling */
+        .minutes-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: #800000 !important;
+            border: 2px solid #800000;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .minutes-btn:hover {
+            background-color: #800000;
+            color: #fff !important;
+        }
+
+
+        /* Page footer */
+        .site-footer {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-social-tab {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .footer-icon-link img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.2s ease;
+        }
+
+        .footer-icon-link:hover img {
+            transform: scale(1.1);
+        }
+
+        .footer-personal-info p {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Styling the personal email/phone links */
+        .footer-personal-info a {
+            color: #800000; /* JCL Maroon */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-personal-info a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+        /* Adjusting calendar size on different screen sizes */
+
+
+        /* By default, hide the mobile version */
+        .mobile-calendar {
+            display: none;
+        }
+
+        /* Make the containers fill the width of the screen */
+        .calendar-container {
+            width: 100%;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The Switch: When the screen is smaller than 768px (Tablets/Phones) */
+        @media (max-width: 768px) {
+            .desktop-calendar {
+                display: none; /* Hide the big bulky calendar */
+            }
+            .mobile-calendar {
+                display: block; /* Show the vertical agenda list */
+            }
+        }
+
+
+        /* --- HAMBURGER LOGIC --- */
+
+        /* Hide the checkbox and hamburger icon by default (Desktop) */
+        #menu-toggle, .hamburger {
+            display: none;
+        }
+
+        /* MOBILE RESPONSIVENESS (iPhone/Small Screens) */
+        @media (max-width: 800px) {
+            /* 1. RESTORE VOCATOR & NEWSLETTER BOXES */
+            .vocator-card, .convention-container, .event-card {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                background: white !important;
+                border-radius: 12px !important;
+                margin-bottom: 25px !important;
+                overflow: hidden !important;
+            }
+
+            .vocator-preview img, .convention-image img, .event-image img {
+                width: 100% !important;
+                height: 250px !important; /* Fixed height you liked */
+                object-fit: cover !important;
+            }
+
+            .vocator-text h3, .convention-text h2, .event-text h2 {
+                font-size: 22px !important; /* Smaller, cleaner text for cards */
+                margin-top: 15px !important;
+            }
+
+            .vocator-text p, .convention-text p, .event-text p {
+                font-size: 15px !important; /* Restored readable size */
+                padding: 0 15px 15px 15px !important;
+            }
+
+            /* 2. SURGICAL FIX FOR MIDDLE SCHOOL VISIT (HERO-MAGAZINE) */
+            /* This forces the complex Middle School HTML to look like a standard Box */
+            .hero-magazine.spotlight {
+                display: flex !important;
+                flex-direction: column !important;
+                background: white !important;
+                border: 1px solid #ddd !important;
+                border-radius: 12px !important;
+                margin: 20px 10px !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+            }
+
+            .magazine-content {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            /* Move the image to the top of the box */
+            .spotlight-image-container {
+                order: -1 !important; /* Forces image above text */
+                width: 100% !important;
+                height: 250px !important;
+                margin: 0 !important;
+            }
+
+            .main-spotlight-img, .main-spotlight-img img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                border-radius: 0 !important;
+            }
+
+            .image-accent-block { display: none !important; } /* Deletes the gray/maroon block */
+
+            .magazine-text {
+                padding: 20px !important;
+                text-align: center !important;
+            }
+
+            .magazine-text h2 {
+                font-size: 24px !important;
+                color: #800000 !important;
+                margin-bottom: 10px !important;
+            }
+
+            /* 3. SATURNALIA & FALL FORUM (HERO-SPLIT / GALLERY) */
+            .hero-split, .hero-gallery {
+                display: flex !important;
+                flex-direction: column !important;
+                background: white !important;
+                border: 1px solid #ddd !important;
+                border-radius: 12px !important;
+                margin: 20px 10px !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+            }
+
+            /* Keep the Main Image at the top */
+            .hero-image-side, .gallery-item.main {
+                width: 100% !important;
+                height: 250px !important;
+                margin: 0 !important;
+            }
+
+            .hero-image-side img, .gallery-item.main img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+            }
+
+            /* SURGERY ON SATURNALIA SUB-BOX */
+            .gallery-item.sub {
+                display: block !important; /* Bring the box back! */
+                width: 100% !important;
+            }
+
+            .gallery-item.sub img {
+                display: none !important; /* ONLY hide the second image */
+            }
+
+            /* FORMAT THE TEXT FOR BOTH */
+            .hero-text-side, .gallery-info {
+                padding: 20px !important;
+                text-align: center !important;
+                display: block !important;
+            }
+
+            .hero-text-side h2, .gallery-info h2 {
+                font-size: 24px !important;
+                color: #800000 !important;
+                margin-top: 0 !important;
+                margin-bottom: 10px !important;
+            }
+
+            .hero-text-side p, .gallery-info p {
+                font-size: 15px !important;
+                line-height: 1.5 !important;
+                color: #333 !important;
+            }
+
+            /* Restore the Date for Saturnalia */
+            .gallery-info .event-date-alt {
+                display: block !important;
+                margin-top: 15px !important;
+                font-weight: bold !important;
+                color: #777 !important;
+            }
+
+            /* Keep hiding the Fall Forum secondary image */
+            .floating-img { display: none !important; }
+
+            
+
+            /* --- SIMPLE UNIFORM VERTICAL MENU --- */
+
+            /* 1. FORCE EVERYTHING INTO A SINGLE COLUMN */
+            .navigationbar, 
+            .navigationbar ul, 
+            .navigationbar li, 
+            .dropdown-menu {
+                display: block !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                list-style: none !important;
+                width: 100% !important;
+                background: white !important;
+                position: static !important; /* Kills the "floating" dropdown boxes */
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            /* 2. HIDE THE NON-LINK TITLES (Testing, Chapter News) */
+            /* This removes the items that just have arrows and aren't real pages */
+            .navigationbar > li.dropdown > a {
+                display: none !important;
+            }
+
+            /* 3. UNIFORM STYLE FOR ALL TABS (Events, NLE, Certamen, etc.) */
+            .navigationbar a, 
+            .navigationbar li a, 
+            .navigationbar .dropdown-menu li a {
+                display: flex !important;
+                align-items: center !important; /* Centers text vertically */
+                height: 60px !important; /* Equal height for every row */
+                padding: 0 25px !important; /* Equal padding from the left */
+                font-size: 18px !important; /* Uniform font size */
+                color: #333 !important;
+                text-decoration: none !important;
+                border-bottom: 1px solid #eee !important; /* Clean separator line */
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            /* 4. THE HAMBURGER BUTTON (Fixed & Visible) */
+            .hamburger-trigger {
+                display: block !important;
+                position: fixed !important;
+                top: 15px; right: 15px;
+                width: 45px; height: 45px;
+                z-index: 1000000;
+                background-color: rgba(0,0,0,0.5); /* Semi-transparent dark box */
+                border-radius: 8px;
+            }
+
+            .visual-hamburger {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: space-around;
+                position: fixed !important;
+                top: 22px; right: 22px;
+                width: 31px; height: 28px;
+                z-index: 1000001;
+                pointer-events: none;
+            }
+
+            .visual-hamburger span {
+                display: block !important;
+                width: 100%; height: 4px;
+                background-color: white;
+                border-radius: 10px;
+            }
+
+            /* 5. MENU OVERLAY LOGIC */
+            .navigationbar {
+                position: fixed !important;
+                top: 0; left: 0;
+                width: 100%; height: 100dvh;
+                z-index: 999999;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                padding-top: 80px !important; /* Space for the button at the top */
+                overflow-y: auto !important; /* Let the user scroll the list */
+            }
+
+            #menu-toggle:checked ~ .navigationbar {
+                transform: translateX(0) !important;
+            }
+
+            /* Animation for the Hamburger X */
+            #menu-toggle:checked ~ .visual-hamburger span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+            #menu-toggle:checked ~ .visual-hamburger span:nth-child(2) { opacity: 0; }
+            #menu-toggle:checked ~ .visual-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+            /* Hide the "Meetings" parent label just like we did for Testing/Chapter News */
+            .navigationbar > li.dropdown > a {
+                display: none !important;
+            }
+
+            /* Force the sub-links (Current and 24-25) to be visible in the main list */
+            .navigationbar .dropdown-menu {
+                display: block !important;
+                position: static !important; /* Makes them part of the vertical flow */
+                box-shadow: none !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            /* Ensure the new archive link looks exactly like the others */
+            .navigationbar .dropdown-menu li a {
+                height: 60px !important;
+                display: flex !important;
+                align-items: center !important;
+                border-bottom: 1px solid #eee !important;
+                padding-left: 25px !important;
+                font-size: 18px !important;
+            }
+
+            .link-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 
 
@@ -45,7 +2251,8 @@ Originally Made by Rayaan Mithani
                 <li class="dropdown">
                     <a href="JCLMeetings.html" class="dropdown-toggle">Meetings ▾<i class="arrow-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="JCLMeetings.html">Current Meetings (25-26)</a></li>
+                        <li><a href="JCLMeetings.html">Current Meetings (26-27)</a></li>
+                        <li><a href="JCLMeetings2526.html">Meeting Archive (25-26)</a></li>
                         <li><a href="JCLMeetings2425.html">Meeting Archive (24-25)</a></li>
                     </ul>
                 </li>
@@ -53,7 +2260,8 @@ Originally Made by Rayaan Mithani
                 <li class="dropdown">
                     <a href="JCLOfficerBoard2526.html">Officers ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="JCLOfficerBoard2526.html">Current Board (25-26)</a></li>
+                        <li><a href="JCLOfficerBoard2627.html">Current Board (26-27)</a></li>
+                        <li><a href="JCLOfficerBoard2526.html">Officer Archive (25-26)</a></li>
                         <li><a href="JCLOfficerBoard2425.html">Officer Archive (24-25)</a></li>
                     </ul>
                 </li>
